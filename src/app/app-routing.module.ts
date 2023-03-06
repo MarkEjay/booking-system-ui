@@ -1,0 +1,32 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './user/user-auth/login/login.component';
+import { RegisterComponent } from './user/user-auth/register/register.component';
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserBookingsComponent } from './user/user-bookings/user-bookings.component';
+import { UserAuthguardService } from './user/user-authguard.service';
+import { MerchantLoginComponent } from './merchant/merchant-auth/merchant-login/merchant-login.component';
+import { MerchantRegisterComponent } from './merchant/merchant-auth/merchant-register/merchant-register.component';
+import { MerchantProfileComponent } from './merchant/merchant-profile/merchant-profile.component';
+import { MerchantAuthguardService } from './merchant/merchant-authguard.service';
+import { MerchantBookingsComponent } from './merchant/merchant-bookings/merchant-bookings.component';
+const routes: Routes = [
+  {path:'user/login', component: LoginComponent},
+  {path:'user/register', component: RegisterComponent},
+  {path:'user/profile', component:UserProfileComponent, canActivate:[UserAuthguardService]},
+  {path:'user/bookings', component:UserBookingsComponent, canActivate:[UserAuthguardService]},
+  {path:'merchant/login', component:MerchantLoginComponent},
+  {path: 'merchant/register', component:MerchantRegisterComponent},
+  {path: 'merchant/profile', component:MerchantProfileComponent, canActivate:[MerchantAuthguardService]},
+  {path: 'merchant/bookings', component:MerchantBookingsComponent, canActivate:[MerchantAuthguardService]},
+
+  
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
+
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
