@@ -1,6 +1,47 @@
-<p>user-profile works!</p>
+<!-- <mat-card class="card">
+  
+  <h1><b>Name:</b> &nbsp;{{fname}} {{lname}}</h1>
+  <h1><b>Email:</b> &nbsp;{{email}}</h1>
+  <h1><b>Phone:</b> &nbsp;{{phone}}</h1>
+</mat-card>
+<a href class="nav-link" (click)="logout()">LogOut</a> -->
 
-<!-- <a href class="nav-link" (click)="logout()">LogOut</a> -->
-<button mat-fab extended color="primary" (click)="logout()">
-    Log out
-  </button>
+<!-- 
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>{{fname}} {{lname}}</mat-card-subtitle>
+    <mat-card-title>{{email}}</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <h2> <span class="material-icons">
+        account_circle
+      </span>Account Settings</h2>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-footer>
+    <h2 (click)="logout()"> <span class="material-icons">
+        logout
+      </span>Log out</h2>
+    <button mat-fab extended color="primary" (click)="logout()">
+        Log out
+      </button>
+  </mat-card-footer>
+</mat-card> -->
+
+<div class="card flex justify-content-center">
+  <p-card header="Profile" [style]="{ width: '360px' }">
+      <div>{{fname}} {{lname}}</div>
+      <div>{{email}}</div>
+      <br>
+      <h2 routerLink="settings"> <i class="pi pi-user" style="font-size: 1.5rem"></i> Account Settings</h2>
+      <ng-template pTemplate="footer">
+        <h2 (click)="logout()"> <i class="pi pi-sign-out" style="font-size: 1.3rem"></i> Log out</h2>
+      <!-- <button mat-fab extended color="primary" (click)="logout()">
+          Log out
+        </button> -->
+      </ng-template>
+  </p-card>
+</div>
+

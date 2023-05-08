@@ -10,18 +10,36 @@ import { MerchantRegisterComponent } from './merchant/merchant-auth/merchant-reg
 import { MerchantProfileComponent } from './merchant/merchant-profile/merchant-profile.component';
 import { MerchantAuthguardService } from './merchant/merchant-authguard.service';
 import { MerchantBookingsComponent } from './merchant/merchant-bookings/merchant-bookings.component';
+import { UserMerchantListComponent } from './user/user-merchant-list/user-merchant-list.component';
+import { MerchantServiceListComponent } from './merchant/merchant-service-list/merchant-service-list.component';
+import { UserMerchantPageComponent } from './user/user-merchant-page/user-merchant-page.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page/landing-page.component';
+import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
+import { UserAccountSettingsComponent } from './user/user-profile/user-account-settings/user-account-settings.component';
 const routes: Routes = [
   {path:'user/login', component: LoginComponent},
   {path:'user/register', component: RegisterComponent},
   {path:'user/profile', component:UserProfileComponent, canActivate:[UserAuthguardService]},
+  {path:'user/profile/settings', component:UserAccountSettingsComponent, canActivate:[UserAuthguardService]},
+
   {path:'user/bookings', component:UserBookingsComponent, canActivate:[UserAuthguardService]},
+  {path:'user/merchant-list', component:UserMerchantListComponent, canActivate:[UserAuthguardService]},
+
+  //give each merchant its own page
+  {path:'user/merchant-page/:id', component:UserMerchantPageComponent, canActivate:[UserAuthguardService]},
   {path:'merchant/login', component:MerchantLoginComponent},
   {path: 'merchant/register', component:MerchantRegisterComponent},
   {path: 'merchant/profile', component:MerchantProfileComponent, canActivate:[MerchantAuthguardService]},
   {path: 'merchant/bookings', component:MerchantBookingsComponent, canActivate:[MerchantAuthguardService]},
+  {path: 'merchant/view-service', component:MerchantServiceListComponent, canActivate:[MerchantAuthguardService]},
+  {path: 'merchant/view-calender', component:MerchantCalenderComponent, canActivate:[MerchantAuthguardService]},
 
   
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+ // {path: 'merchant/add-service'}
+
+ {path:'', component:LandingPageComponent},
+
+  { path: '', redirectTo: 'main', pathMatch: 'full' }
 
 ];
 

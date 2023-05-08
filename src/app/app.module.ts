@@ -17,6 +17,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { MerchantLoginComponent } from './merchant/merchant-auth/merchant-login/merchant-login.component';
 import { MerchantRegisterComponent } from './merchant/merchant-auth/merchant-register/merchant-register.component';
+
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
@@ -29,10 +31,27 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UserRequestComponent } from './user/user-request/user-request.component';
 import { MerchantProfileComponent } from './merchant/merchant-profile/merchant-profile.component';
 import { MerchantBookingsComponent } from './merchant/merchant-bookings/merchant-bookings.component';
+import { UserHomeComponent } from './user/user-home/user-home.component';
+import { UserMerchantListComponent } from './user/user-merchant-list/user-merchant-list.component';
+import {MatListModule} from '@angular/material/list';
+import { MerchantServiceListComponent } from './merchant/merchant-service-list/merchant-service-list.component';
+import { MerchantAddServiceComponent } from './merchant/merchant-add-service/merchant-add-service.component';
+import { UserMerchantPageComponent } from './user/user-merchant-page/user-merchant-page.component';
 
 
+import { ButtonModule } from 'primeng/button';
+import {StyleClassModule} from 'primeng/styleclass';
+import { LandingPageComponent } from './pages/landing-page/landing-page/landing-page.component';
+import { CardModule } from 'primeng/card';
+import { DataViewModule,DataViewLayoutOptions } from 'primeng/dataview';
+// import { DataViewLayoutOptions } from 'primeng/dataview';
+import { OrderListModule } from 'primeng/orderlist';
+import { TableModule } from 'primeng/table';
 
 
+import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { UserAccountSettingsComponent } from './user/user-profile/user-account-settings/user-account-settings.component';
 
 @NgModule({
   
@@ -55,7 +74,16 @@ import { MerchantBookingsComponent } from './merchant/merchant-bookings/merchant
     MatTabsModule,
     MatSortModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
+    ButtonModule,
+    StyleClassModule,
+    CardModule,
+    DataViewModule,
+  //  DataViewLayoutOptions
+  OrderListModule,
+  FullCalendarModule,
+  TableModule
   ],
   declarations: [
     AppComponent,
@@ -70,6 +98,14 @@ import { MerchantBookingsComponent } from './merchant/merchant-bookings/merchant
     UserRequestComponent,
     MerchantProfileComponent,
     MerchantBookingsComponent,
+    UserHomeComponent,
+    UserMerchantListComponent,
+    MerchantServiceListComponent,
+    MerchantAddServiceComponent,
+    UserMerchantPageComponent,
+    LandingPageComponent,
+    MerchantCalenderComponent,
+    UserAccountSettingsComponent,
   ],
   //providers: [],
   bootstrap: [AppComponent]

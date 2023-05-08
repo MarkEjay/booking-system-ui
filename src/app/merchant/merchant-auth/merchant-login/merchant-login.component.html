@@ -1,4 +1,4 @@
-<p class="login">Merchant</p>
+<!-- <p class="login">Merchant</p>
 <mat-card class="card">    
  <form [hidden]="isLoggedIn" class="example-form">
    <mat-form-field appearance="outline">
@@ -15,7 +15,6 @@
    <div class="info">
     <p>Are you a User? <span routerLink="/user/login">Click here</span></p>
 
-     <!-- <p>Forgot your password? click here</p> -->
       <p>Register an Account? <span routerLink="/merchant/register">Click here</span></p>
    </div>
    <button [disabled]="!email.valid || !password.valid" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
@@ -30,4 +29,43 @@
 <div class="alert alert-success" *ngIf="isLoggedIn">
  Logged in as {{name}} - {{merchantid}}.
 </div>
-</mat-card>
+</mat-card> -->
+<div class="card flex justify-content-center">
+  <p-card header="Merchant Login"  [style]="{ width: '360px' }">
+      <!-- place body -->
+        <form [hidden]="isLoggedIn" class="example-form">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input [formControl]="email" matInput placeholder="Placeholder">
+          </mat-form-field>
+          <br/>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input [formControl]="password" matInput placeholder="Placeholder">
+          </mat-form-field>
+          <br/>
+          
+        
+        </form>
+       
+
+      <ng-template pTemplate="footer">
+        <div class="info">
+          <p>Are you a User? <span routerLink="/user/login">Click here</span></p>
+      
+            <p>Register an Account? <span routerLink="/merchant/register">Click here</span></p>
+         </div>
+         <button [disabled]="!email.valid || !password.valid" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
+         <div
+         class="alert alert-danger"
+         role="alert"
+         *ngIf="isLoginFailed"
+        >
+         Login failed: {{ errorMessage }}
+        </div>
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+         Logged in as {{name}} - {{merchantid}}.
+        </div>
+      </ng-template>
+  </p-card>
+</div>

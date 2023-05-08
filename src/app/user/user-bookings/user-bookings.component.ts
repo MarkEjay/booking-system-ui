@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { Request } from '../../request';
+//import { Request } from '../../request';
+import { Request } from '../request';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatSort, SortDirection,Sort} from '@angular/material/sort';
@@ -62,15 +63,15 @@ export class UserBookingsComponent implements OnInit {
     })
     // console.log(req.userId)
   }
-  openDialog(){
-    const dialogRef = this.dialog.open(UserRequestComponent);
+  // openDialog(){
+  //   const dialogRef = this.dialog.open(UserRequestComponent);
 
-    dialogRef.afterClosed().subscribe(result =>{
+  //   dialogRef.afterClosed().subscribe(result =>{
 
-        console.log("this is update")
-        window.location.reload()
+  //       console.log("this is update")
+  //       window.location.reload()
 
-      console.log('Dialog closed')
-    })
-  }
+  //     console.log('Dialog closed')
+  //   })
+  // }
 }

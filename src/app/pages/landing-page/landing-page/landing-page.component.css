@@ -1,0 +1,73 @@
+.py-3 {
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+}
+.mt-3 {
+    margin-top: 1rem!important;
+}
+.position-relative {
+    position: relative!important;
+}
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+/* @media (min-width: 992px) */
+.text-lg-start {
+    text-align: left!important;
+}
+.text-center {
+    text-align: center!important;
+}
+/* @media (min-width: 992px) */
+.col-lg-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+}
+
+/* .p-col-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   } */
+
+   /* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+  }
+  
+  /* Control the left side */
+  .left {
+    left: 0;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the image inside the centered container, if needed */
+  .centered img {
+    width: 150px;
+    border-radius: 50%;
+  }
+  

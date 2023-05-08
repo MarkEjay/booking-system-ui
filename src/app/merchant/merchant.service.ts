@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BASEURL } from '../constants';
 import { Merchant } from './merchant';
+import { Service } from './service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,18 @@ export class MerchantService {
   }
   deleteRequest(id:string){
     return this.http.delete(`${BASEURL}/api/merchant/delete-request/${id}`)
+  }
+
+  getAllMerchant():Observable<any>{
+    return this.http.get(`${BASEURL}/api/merchant`)
+  }
+
+  createService(service: Service):Observable<any>{
+    return this.http.post(`${BASEURL}/api/merchant/add-service`, service)
+  }
+
+  getService(id: string):Observable<any>{
+    return this.http.get(`${BASEURL}/api/merchant/view-service/${id}`)
   }
 
 }

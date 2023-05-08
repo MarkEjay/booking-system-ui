@@ -1,20 +1,24 @@
 <mat-card class="card">
     <form class="example-form">
-    <mat-form-field  appearance="outline">
+    <!-- <mat-form-field  appearance="outline">
       <mat-label>Merchant Id</mat-label>
       <input  [formControl]="merchantid" matInput>
     </mat-form-field>
-    <br>
+    <br> -->
     <!-- <mat-form-field appearance="fill">
       <mat-label>Price</mat-label>
       <input  [formControl]="appointment" matInput>
     </mat-form-field>
     <br> -->
-  <mat-form-field  appearance="outline">
+  <!-- <mat-form-field  appearance="outline">
       <mat-label>Description</mat-label>
       <textarea  [formControl]="description" matInput></textarea>
   
     </mat-form-field>
+    <br> -->
+    <h1>{{details}}</h1>
+    <br/>
+    <h3>Select a date to confirm your spot</h3>
     <br>
     <mat-form-field appearance="outline">
         <input [formControl]="appointment" matInput type="datetime-local" >

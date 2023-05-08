@@ -22,7 +22,7 @@ export class MerchantBookingsComponent implements OnInit {
 
   request: Request[] = [];
   booking: Request[] = [];
- approved: any[] = [];
+  approved: any[] = [];
   pending: any[] = [];
 
 
@@ -36,6 +36,7 @@ export class MerchantBookingsComponent implements OnInit {
     this.currentUser = this.authToken.getUser()
     this.getRequest();
     this.Bookings();
+
     //console.log(this.currentUser.merchantid)
     //console.log(this.currentUser.userid)
 
@@ -69,13 +70,16 @@ export class MerchantBookingsComponent implements OnInit {
           this.booking = this.approved;
           this.dataSource = new MatTableDataSource(this.booking)
           
-          
          // console.log("approved")
 
         }
+
       }
+      
     })
     // console.log(req.userId)
+    console.log(this.approved)
+
   }
 
   approveRequest(element: any) {
@@ -94,6 +98,8 @@ export class MerchantBookingsComponent implements OnInit {
   deleteRequest(id: string) {
     this.merchantService.deleteRequest(id).subscribe(response => {
       this.getRequest()
+      window.location.reload()
+
       console.log('deleted')
     })
   }

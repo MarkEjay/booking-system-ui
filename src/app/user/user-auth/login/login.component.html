@@ -1,4 +1,4 @@
- <p class="login">Login</p>
+ <!-- <p class="login">Login</p>
  <mat-card class="card">    
   <form  [hidden]="isLoggedIn" class="example-form">
     <mat-form-field appearance="outline">
@@ -14,7 +14,6 @@
     
     <div class="info">
       <p *ngIf="isMerch">Are you a Merchant? <span routerLink="/merchant/login">Click here</span></p>
-      <!-- <p>Forgot your password? click here</p> -->
 
     </div>
     <button [disabled]="!email.valid || !password.valid" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
@@ -29,4 +28,43 @@
 <div class="alert alert-success" *ngIf="isLoggedIn">
   Logged in as {{name}} - {{role}}.
 </div>
- </mat-card>
+ </mat-card> -->
+
+
+ <div class="card flex justify-content-center">
+  <p-card header="User Login"  [style]="{ width: '370px' }">
+      <form  [hidden]="isLoggedIn" class="example-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input [formControl]="email" matInput placeholder="Placeholder">
+        </mat-form-field>
+        <br/>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input [formControl]="password" matInput placeholder="Placeholder">
+        </mat-form-field>
+        <br/>
+        
+       
+      </form>
+      <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="isLoginFailed"
+    >
+      Login failed: {{ errorMessage }}
+    </div>
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{name}} - {{role}}.
+    </div>
+      <ng-template pTemplate="footer">
+        <div class="info">
+          <p *ngIf="isMerch">Are you a Merchant? <span routerLink="/merchant/login">Click here</span></p>
+          <!-- <p>Forgot your password? click here</p> -->
+    
+        </div>
+        <button [disabled]="!email.valid || !password.valid" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
+      </ng-template>
+  </p-card>
+</div>
+

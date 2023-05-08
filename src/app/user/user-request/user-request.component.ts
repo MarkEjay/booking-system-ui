@@ -22,6 +22,7 @@ export class UserRequestComponent implements OnInit{
     currentUser: any;
 
     currentDate = new Date();
+    details='';
 
     actionBtn:string="Save"
    // declineBtn:string="Decline"
@@ -35,10 +36,13 @@ export class UserRequestComponent implements OnInit{
       //   this.description.setValue(this.editRequest.description)
       //   this.status.setValue(this.editRequest.status)
 
+      console.log(this.currentUser)
 
       // }
+      console.log(this.bookService.merchantid)
+      this.details = `${this.bookService.title} for CA$${this.bookService.price} `
       }
-    constructor(@Inject(MAT_DIALOG_DATA) public editRequest:any,private authToken: AuthenticationService ,private userService: UserService,private merchantService: MerchantService,private dialogRef : MatDialogRef<UserRequestComponent> ){}
+    constructor(@Inject(MAT_DIALOG_DATA) public bookService:any,private authToken: AuthenticationService ,private userService: UserService,private merchantService: MerchantService,private dialogRef : MatDialogRef<UserRequestComponent> ){}
 
     // approveRequest(){
     //   let rqst={
@@ -56,13 +60,16 @@ export class UserRequestComponent implements OnInit{
      // if(!this.editRequest){
       let rqst={
         userid: this.currentUser.id,
-        merchantid: this.merchantid.value,
+        useremail:this.currentUser.email,
+        merchantid: this.bookService.merchantid,
         created: this.currentDate,
         appointment:this.appointment.value,
         //this.appointment.value,
-        description:this.description.value,
+        description:this.bookService.title,
         status:"pending"
       }
+
+      console.log(rqst)
       this.userService.addRequest(rqst).subscribe(Response=>{
         window.location.reload()
       })
