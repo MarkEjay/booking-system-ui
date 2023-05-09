@@ -47,7 +47,7 @@ import { DataViewModule,DataViewLayoutOptions } from 'primeng/dataview';
 // import { DataViewLayoutOptions } from 'primeng/dataview';
 import { OrderListModule } from 'primeng/orderlist';
 import { TableModule } from 'primeng/table';
-
+import { CalendarModule } from 'primeng/calendar';
 
 import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -83,7 +83,8 @@ import { UserAccountSettingsComponent } from './user/user-profile/user-account-s
   //  DataViewLayoutOptions
   OrderListModule,
   FullCalendarModule,
-  TableModule
+  TableModule,
+  CalendarModule
   ],
   declarations: [
     AppComponent,

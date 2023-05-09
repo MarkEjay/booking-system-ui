@@ -20,11 +20,13 @@
     <br/>
     <h3>Select a date to confirm your spot</h3>
     <br>
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
         <input [formControl]="appointment" matInput type="datetime-local" >
-      </mat-form-field>
-      <p>Press spacebar to to pick a date</p>
-
+      </mat-form-field> -->
+      <!-- <p>Press spacebar to to pick a date</p> -->
+      <!-- <div class="card flex justify-content-center"> -->
+        <p-calendar  class="max-w-full" [showSeconds]="true" [formControl]="appointment" hourFormat="12" [showTime]="true" [touchUI]="true" [readonlyInput]="true" ></p-calendar>
+    <!-- </div> -->
       <br>
       
   
@@ -36,13 +38,14 @@
       <mat-datepicker   #picker></mat-datepicker>
     </mat-form-field> -->
   <br>
-    <mat-card-actions align="end">
-      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
-        {{actionBtn}}
-      </button>
-      <button mat-button mat-dialog-close>CANCEL</button>
-      
-    </mat-card-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
+    {{actionBtn}}
+  </button>
+  <button mat-button mat-dialog-close>CANCEL</button>
+  
     </form>
+    <!-- <mat-card-actions align="end">
+     
+    </mat-card-actions> -->
   </mat-card>
   

@@ -70,6 +70,8 @@ export class UserRequestComponent implements OnInit{
       }
 
       console.log(rqst)
+      console.log(rqst.appointment)
+      // console.log( new Date(rqst.appointment))
       this.userService.addRequest(rqst).subscribe(Response=>{
         window.location.reload()
       })
