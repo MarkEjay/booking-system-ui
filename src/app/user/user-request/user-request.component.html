@@ -21,11 +21,20 @@
     <h3>Select a date to confirm your spot</h3>
     <br>
     <!-- <mat-form-field appearance="outline">
-        <input [formControl]="appointment" matInput type="datetime-local" >
+        <input [formControl]="date" matInput  type="date" >
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <input [formControl]="time" matInput  type="time" >
+      </mat-form-field>
+      <p-calendar [(ngModel)]="date" [touchUI]="true" [readonlyInput]="true"></p-calendar> -->
+
+      <!-- <mat-form-field appearance="outline">
+        <input [(ngModel)]="time" matInput type="time" >
       </mat-form-field> -->
       <!-- <p>Press spacebar to to pick a date</p> -->
       <!-- <div class="card flex justify-content-center"> -->
-        <p-calendar  class="max-w-full" [showSeconds]="true" [formControl]="appointment" hourFormat="12" [showTime]="true" [touchUI]="true" [readonlyInput]="true" ></p-calendar>
+        <p-calendar  class="max-w-full" [formControl]="appointment" hourFormat="12" [appendTo]="00" [showTime]="true" [touchUI]="true" [readonlyInput]="true" ></p-calendar>
     <!-- </div> -->
       <br>
       
@@ -43,6 +52,26 @@
   </button>
   <button mat-button mat-dialog-close>CANCEL</button>
   
+
+
+  <!-- <div class="pickers-wrapper">
+    <div class="form-group">
+        <div class="form-date-picker">
+            <igx-date-picker #datePicker name="date-picker" [(ngModel)]="date">
+                <label igxLabel>Date</label>
+            </igx-date-picker>
+        </div>
+        <div class="form-time-picker">
+            <igx-time-picker name="time-picker" [(ngModel)]="date" [disabled]="datePicker.value ? false : true">
+                <label igxLabel>Time</label>
+            </igx-time-picker>
+        </div>
+    </div>
+    <p class="text">
+        Selected date: {{ date? date.toLocaleString() : null }}
+    </p>
+</div> -->
+
     </form>
     <!-- <mat-card-actions align="end">
      

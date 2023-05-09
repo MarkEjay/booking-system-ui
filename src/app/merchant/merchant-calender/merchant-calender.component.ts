@@ -23,6 +23,9 @@ export class MerchantCalenderComponent implements OnInit {
 
   trial: any = [];
   events: any = [];
+  // day="2023-05-09"
+  // // time="T21:00:00.000Z"
+  // time="T13:30:00.000"
 
   constructor(private changeDetector: ChangeDetectorRef, private merchantService: MerchantService, private authToken: AuthenticationService) { }
   ngOnInit(): void {
@@ -31,18 +34,10 @@ export class MerchantCalenderComponent implements OnInit {
     //  console.log(this.trial)
     // this.events.push({
     //   title:"hello",
-    //   date:"2023-05-22T21:00:00.000Z"
-    //   // end:"2023-04-22T22:30:00.000Z"
-
-    // },{
-    //   title:"hello",
-    //   date:"2023-05-24T21:00:00.000Z"
-    //   // end:"2023-04-22T22:30:00.000Z"
-
-    // },
-    // {
-    //   title:"hello",
-    //   date:"2023-05-26T21:00:00.000Z"
+    //   // date:"2023-05-09T21:00:00.000Z",
+    //   // day:"2023-05-09",
+    //   // time:"T21:00:00.000Z"
+    //   date:`${this.day}${this.time}`
     //   // end:"2023-04-22T22:30:00.000Z"
 
     // })
@@ -53,7 +48,7 @@ export class MerchantCalenderComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     //initialView: 'dayGridMonth',
     plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin],
-
+    events:this.events,
     selectable: true,
     headerToolbar: {
       left: 'prev,next today',
