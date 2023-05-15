@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 //import { Request } from '../../request';
-import { Request } from '../request';
+import { Request } from '../../request';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatSort, SortDirection,Sort} from '@angular/material/sort';

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { User } from '../../user';
 import { UserService } from '../../user.service';
 
 @Component({
@@ -23,6 +24,8 @@ export class UserAccountSettingsComponent {
   postalcode=new FormControl('');
 
   currentUser: any;
+  user:any;
+  updateMsg='';
   
   constructor(private authToken: AuthenticationService, private userService: UserService){
     
@@ -32,16 +35,19 @@ export class UserAccountSettingsComponent {
     this.currentUser = this.authToken.getUser();
     // this.firstName.setValue(this.currentUser.firstname)
     // this.lastName.setValue(this.currentUser.lastname)
-    this.email.setValue(this.currentUser.email)
     this.phone.setValue(this.currentUser.phone)
 
 
-    this.fname=this.currentUser.firstname
+    // this.fname=this.currentUser.firstname
     this.lname=this.currentUser.lastname
+    
     // this.email=this.currentUser.email
     // this.phone=this.currentUser.phone
 
-    console.log(this.currentUser)
+    // console.log(this.currentUser)
+    this.getUser()
+
+    
   }
 
   updateUser(){
@@ -51,12 +57,27 @@ export class UserAccountSettingsComponent {
     this.userService.updateUser(user,this.currentUser.id).subscribe(
       response=>{
         console.log(response)
+        this.updateMsg="User Updated"
       }
     )
   }
+  
 
   getUser(){
-    
+    this.userService.getUser(this.currentUser.id).subscribe(
+      usr=>{
+        // console.log(usr)
+        this.user=usr
+        this.fname=this.user.firstname
+        this.email.setValue(this.user.email)
+
+
+        // console.log(usr)
+        // console.log(this.user)
+      }
+    )
+    // console.log(this.currentUser.id)
+
   }
   // updateExpense(){
   //   let ex={

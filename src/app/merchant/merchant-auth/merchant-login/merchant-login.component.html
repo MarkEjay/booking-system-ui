@@ -41,7 +41,10 @@
           <br/>
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input [formControl]="password" matInput placeholder="Placeholder">
+            <input [type]="hide ? 'password' : 'text'" [formControl]="password" matInput placeholder="Placeholder">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
           </mat-form-field>
           <br/>
           
@@ -50,12 +53,12 @@
        
 
       <ng-template pTemplate="footer">
-        <div class="info">
+        <div class="info" *ngIf="!isLoggedIn">
           <p>Are you a User? <span routerLink="/user/login">Click here</span></p>
       
             <p>Register an Account? <span routerLink="/merchant/register">Click here</span></p>
          </div>
-         <button [disabled]="!email.valid || !password.valid" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
+         <button [disabled]="!email.valid || !password.valid || isLoggedIn" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
          <div
          class="alert alert-danger"
          role="alert"
@@ -64,6 +67,8 @@
          Login failed: {{ errorMessage }}
         </div>
         <div class="alert alert-success" *ngIf="isLoggedIn">
+          <!-- <p>Login an Account? <span routerLink="/merchant/register">Click here</span></p> -->
+
          Logged in as {{name}} - {{merchantid}}.
         </div>
       </ng-template>

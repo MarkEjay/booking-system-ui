@@ -52,6 +52,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { UserAccountSettingsComponent } from './user/user-profile/user-account-settings/user-account-settings.component';
+import { MerchantAccountSettingsComponent } from './merchant/merchant-profile/merchant-account-settings/merchant-account-settings.component';
 // import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 // import { Options } from '@popperjs/core';
 
@@ -111,6 +112,7 @@ import { UserAccountSettingsComponent } from './user/user-profile/user-account-s
     LandingPageComponent,
     MerchantCalenderComponent,
     UserAccountSettingsComponent,
+    MerchantAccountSettingsComponent,
   ],
   //providers: [],
   bootstrap: [AppComponent]

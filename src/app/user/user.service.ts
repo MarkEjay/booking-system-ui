@@ -3,7 +3,7 @@ import { BASEURL } from '../constants';
 import { User } from './user';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Request } from './request';
+import { Request } from '../request';
 
 @Injectable({
   providedIn: 'root'

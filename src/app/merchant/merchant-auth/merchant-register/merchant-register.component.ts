@@ -19,6 +19,8 @@ export class MerchantRegisterComponent {
   isSuccessful=false;
   isSignUpFailed=false;
   errorMessage='';
+  successMsg='';
+
 
   constructor(private merchantService: MerchantService){}
 
@@ -37,7 +39,9 @@ export class MerchantRegisterComponent {
     this.merchantService.createMerchant(merch).subscribe(response =>{
       console.log(response);
         this.isSuccessful = true;
-        this.isSignUpFailed = false;
+        console.log(response.message)
+        this.successMsg="Account Created Successfully"
+        // this.isSignUpFailed = false;
     },err => {
       this.errorMessage = err.error.message;
       this.isSignUpFailed = true;}

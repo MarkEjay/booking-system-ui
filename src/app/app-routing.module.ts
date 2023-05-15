@@ -16,6 +16,7 @@ import { UserMerchantPageComponent } from './user/user-merchant-page/user-mercha
 import { LandingPageComponent } from './pages/landing-page/landing-page/landing-page.component';
 import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
 import { UserAccountSettingsComponent } from './user/user-profile/user-account-settings/user-account-settings.component';
+import { MerchantAccountSettingsComponent } from './merchant/merchant-profile/merchant-account-settings/merchant-account-settings.component';
 const routes: Routes = [
   {path:'user/login', component: LoginComponent},
   {path:'user/register', component: RegisterComponent},
@@ -33,6 +34,8 @@ const routes: Routes = [
   {path: 'merchant/bookings', component:MerchantBookingsComponent, canActivate:[MerchantAuthguardService]},
   {path: 'merchant/view-service', component:MerchantServiceListComponent, canActivate:[MerchantAuthguardService]},
   {path: 'merchant/view-calender', component:MerchantCalenderComponent, canActivate:[MerchantAuthguardService]},
+  {path:'merchant/profile/settings', component:MerchantAccountSettingsComponent, canActivate:[MerchantAuthguardService]},
+
 
   
  // {path: 'merchant/add-service'}

@@ -43,4 +43,14 @@ export class MerchantService {
     return this.http.get(`${BASEURL}/api/merchant/view-service/${id}`)
   }
 
+  updateMerchant(merchant:any, id:string){
+    return this.http.put(`${BASEURL}/api/merchant/edit-merchant/${id}`,merchant)
+
+  }
+  
+  getMerchant(id:String):Observable<any>{
+    return this.http.get(`${BASEURL}/api/merchant/get-merchant/${id}`)
+  }
+
+
 }

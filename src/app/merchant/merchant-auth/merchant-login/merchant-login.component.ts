@@ -11,6 +11,7 @@ import { MerchantService } from '../../merchant.service';
 export class MerchantLoginComponent implements OnInit {
   email= new FormControl('',Validators.required);
   password= new FormControl('', Validators.required);
+  hide = true;
 
   isLoggedIn = false;
   isLoginFailed = false;

@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit{
   isSuccessful=false;
   isSignUpFailed=false;
   errorMessage='';
+  successMsg='';
 
   constructor(private userService: UserService){}
   ngOnInit(): void {
@@ -35,10 +36,15 @@ export class RegisterComponent implements OnInit{
     this.userService.createUser(usr).subscribe(response =>{
       console.log(response);
         this.isSuccessful = true;
-        this.isSignUpFailed = false;
+        // this.isSignUpFailed = false;
+        // this.successMsg=response.error.text;
+        // console.log(this.successMsg)
     },err => {
       this.errorMessage = err.error.message;
-      this.isSignUpFailed = true;}
+      this.isSignUpFailed = true;
+      console.log(err)
+    }
+      
     )
   }
 

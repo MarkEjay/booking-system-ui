@@ -21,6 +21,8 @@ export class UserRequestComponent implements OnInit{
 
     description=new FormControl('');
     status=new FormControl();
+    user:any;
+    // email=new FormControl();
 
   //  public date = new Date('2023-05-09T21:00:00.000Z');
   //  public time = new Date().getTime()
@@ -31,6 +33,7 @@ export class UserRequestComponent implements OnInit{
 
     currentDate = new Date();
     details='';
+    usrEmail='';
 
     actionBtn:string="Save"
    // declineBtn:string="Decline"
@@ -50,6 +53,9 @@ export class UserRequestComponent implements OnInit{
       // }
       console.log(this.bookService.merchantid)
       this.details = `${this.bookService.title} for CA$${this.bookService.price} `
+
+      this.getUser()
+
       }
     constructor(@Inject(MAT_DIALOG_DATA) public bookService:any,private authToken: AuthenticationService ,private userService: UserService,private merchantService: MerchantService,private dialogRef : MatDialogRef<UserRequestComponent> ){}
 
@@ -69,7 +75,9 @@ export class UserRequestComponent implements OnInit{
      // if(!this.editRequest){
       let rqst={
         userid: this.currentUser.id,
-        useremail:this.currentUser.email,
+        // useremail:this.currentUser.email,
+        useremail:this.usrEmail,
+
         merchantid: this.bookService.merchantid,
         created: this.currentDate,
         // appointment:`${this.date.value}T${this.time.value}:00.000`,
@@ -84,6 +92,20 @@ export class UserRequestComponent implements OnInit{
       this.userService.addRequest(rqst).subscribe(Response=>{
         window.location.reload()
       })
+    }
+    getUser(){
+      this.userService.getUser(this.currentUser.id).subscribe(
+        usr=>{
+          // console.log(usr)
+          this.user=usr
+          this.usrEmail=this.user.email
+  
+          // console.log(usr)
+           console.log(this.user.email)
+        }
+      )
+      // console.log(this.currentUser.id)
+  
     }
   //   else{
   //     this.approveRequest()

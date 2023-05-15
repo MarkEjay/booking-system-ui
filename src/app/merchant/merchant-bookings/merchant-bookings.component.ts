@@ -45,6 +45,7 @@ export class MerchantBookingsComponent implements OnInit {
   constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService) { }
   getRequest() {
     this.merchantService.getRequest(this.currentUser.merchantid).subscribe(data => {
+      // console.log(data)
 
       for (const i of data.request) {
           //console.log(data.request[i].status)
