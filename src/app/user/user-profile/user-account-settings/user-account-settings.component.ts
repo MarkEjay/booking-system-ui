@@ -35,7 +35,7 @@ export class UserAccountSettingsComponent {
     this.currentUser = this.authToken.getUser();
     // this.firstName.setValue(this.currentUser.firstname)
     // this.lastName.setValue(this.currentUser.lastname)
-    this.phone.setValue(this.currentUser.phone)
+    // this.phone.setValue(this.currentUser.phone)
 
 
     // this.fname=this.currentUser.firstname
@@ -52,7 +52,8 @@ export class UserAccountSettingsComponent {
 
   updateUser(){
     let user={
-      email: this.email.value
+      email: this.email.value,
+      phone:this.phone.value
     }
     this.userService.updateUser(user,this.currentUser.id).subscribe(
       response=>{
@@ -70,7 +71,7 @@ export class UserAccountSettingsComponent {
         this.user=usr
         this.fname=this.user.firstname
         this.email.setValue(this.user.email)
-
+        this.phone.setValue(this.user.phone)
 
         // console.log(usr)
         // console.log(this.user)

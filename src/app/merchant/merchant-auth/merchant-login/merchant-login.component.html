@@ -53,11 +53,11 @@
        
 
       <ng-template pTemplate="footer">
-        <div class="info" *ngIf="!isLoggedIn">
+        <!-- <div class="info" *ngIf="!isLoggedIn">
           <p>Are you a User? <span routerLink="/user/login">Click here</span></p>
       
             <p>Register an Account? <span routerLink="/merchant/register">Click here</span></p>
-         </div>
+         </div> -->
          <button [disabled]="!email.valid || !password.valid || isLoggedIn" (click)="onSubmit()" class="button"mat-flat-button color="primary">Login</button>
          <div
          class="alert alert-danger"

@@ -17,7 +17,7 @@ const pending: any[] = [];
 export class MerchantBookingsComponent implements OnInit {
   currentUser: any;
   tableheaders: string[] = ['created', 'appointment', 'description', 'status', 'approve', 'decline']
-  tableBookings: string[] = ['created', 'appointment', 'description', 'status']
+  tableBookings: string[] = ['created', 'appointment', 'description', 'status','useremail']
 
 
   request: Request[] = [];

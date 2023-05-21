@@ -37,31 +37,23 @@
   <button mat-menu-item>Item 2</button>
   <button mat-menu-item>Item 1</button> -->
 
-   <div *ngIf="!isLoggedIn">
-        <span  routerLink="/user/login">Login</span>
-      </div>
+        <div  *ngIf="!isLoggedIn" routerLink="/user/login">User Login</div>
       &nbsp;&nbsp;
-      <div *ngIf="!isLoggedIn">
-        <span routerLink="/user/register">Register</span>
-      </div>
+        <div *ngIf="!isLoggedIn" routerLink="/user/register">User Register</div>
       &nbsp;&nbsp;
-      <div *ngIf="isLoggedIn && !isMerchant">
-        <span routerLink="/user/profile">Profile</span>
-      </div>
+      <div  *ngIf="!isLoggedIn" routerLink="/merchant/login">Merchant Login</div>
       &nbsp;&nbsp;
-      <div *ngIf="isLoggedIn && !isMerchant">
-        <span routerLink="/user/bookings">Bookings</span>
-      </div>
-      <div *ngIf="isMerchant">
+        <div *ngIf="!isLoggedIn" routerLink="/merchant/register">Merchant Register</div>
+      &nbsp;&nbsp;
+        <div *ngIf="isLoggedIn && !isMerchant" routerLink="/user/profile">Profile</div>
+      &nbsp;&nbsp;
+        <div  *ngIf="isLoggedIn && !isMerchant" routerLink="/user/bookings">Bookings</div>
         <!-- <span class="material-icons" >
           person
           </span> -->
-        <span routerLink="/merchant/profile">Profile</span>
-      </div>
-      &nbsp;&nbsp;
-      <div *ngIf="isMerchant">
-        <span routerLink="/merchant/bookings">Bookings</span>
-      </div>
+        <div *ngIf="isMerchant" routerLink="/merchant/profile">Profile</div>
+      <br>
+        <div *ngIf="isMerchant" routerLink="/merchant/bookings">Bookings</div>
 </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>

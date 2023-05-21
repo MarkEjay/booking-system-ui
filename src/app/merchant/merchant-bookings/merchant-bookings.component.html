@@ -115,6 +115,10 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Status </th>
         <td mat-cell *matCellDef="let element"> {{element.status}} </td>
       </ng-container>
+      <ng-container matColumnDef="useremail">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Client Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.useremail}} </td>
+      </ng-container>
 
 
       <!-- <ng-container matColumnDef="approve">
