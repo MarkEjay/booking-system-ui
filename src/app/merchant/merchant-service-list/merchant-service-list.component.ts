@@ -13,7 +13,7 @@ import { Service } from '../service';
 })
 export class MerchantServiceListComponent implements OnInit{
   
-  tableheaders: string[] = ['merchantid', 'title','description', 'price','duration']
+  tableheaders: string[] = ['merchantid', 'title','description', 'price','duration','delete']
   currentUser: any;
 
   service:Service[]=[];
@@ -44,4 +44,21 @@ export class MerchantServiceListComponent implements OnInit{
       window.location.reload()
     })
   }
+
+  deleteService(id: string) {
+    this.merchantService.deleteService(id).subscribe(response =>{
+      window.location.reload()
+      console.log('deleted')
+
+
+    })
+    // this.merchantService.deleteRequest(id).subscribe(response => {
+    //   this.getRequest()
+    //   window.location.reload()
+
+    //   console.log('deleted')
+    // })
+  }
+
+
 }

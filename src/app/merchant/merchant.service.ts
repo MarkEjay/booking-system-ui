@@ -43,6 +43,11 @@ export class MerchantService {
     return this.http.get(`${BASEURL}/api/merchant/view-service/${id}`)
   }
 
+  deleteService(id:string){
+
+    return this.http.delete(`${BASEURL}/api/merchant/delete-service/${id}`)
+  }
+
   updateMerchant(merchant:any, id:string){
     return this.http.put(`${BASEURL}/api/merchant/edit-merchant/${id}`,merchant)
 
