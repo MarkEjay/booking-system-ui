@@ -70,4 +70,7 @@
     width: 150px;
     border-radius: 50%;
   }
-  
+  .main {
+    background-image: url(../../../../assets/Untitled-2.png);
+    background-color: black;
+  }

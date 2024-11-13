@@ -7,4 +7,5 @@ export interface Merchant{
     phone:any;
     email:any;
     password:any;
+    profile:any;
 }

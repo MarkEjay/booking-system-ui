@@ -23,6 +23,22 @@
     <input  [formControl]="duration" matInput>
     e.g 30mins
   </mat-form-field>
+  <br>
+  <!-- <mat-form-field  appearance="outline">
+  <mat-label>Chose Profile Picture</mat-label>
+  <input type="file" name="profile" (change)="handleFileInputChange($event)">
+  <img src={{previewSource}} height="100px" width="100px"/>
+  </mat-form-field> -->
+  <div class="card flex justify-content-center">
+  <!-- <p-fileUpload chooseLabel="Upload Image" (onUpload)="handleFileInputChange($event)"></p-fileUpload> -->
+  Chose Profile Picture<input type="file" name="profile" (change)="handleFileInputChange($event)">
+
+  </div>
+  <!-- <div class="example-button-container">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div> -->
   
 <br>
     <mat-card-actions align="end">

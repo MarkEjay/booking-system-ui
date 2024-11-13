@@ -4,4 +4,5 @@ export interface Service{
     description:any;
     price:any;
     duration:any;
+    profile:any;
 }

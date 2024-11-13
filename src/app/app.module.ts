@@ -56,6 +56,10 @@ import { MerchantAccountSettingsComponent } from './merchant/merchant-profile/me
 // import { NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap';
 // import { Options } from '@popperjs/core';
 
+import { FileUploadModule } from 'primeng/fileupload';
+// import { CloudinaryModule } from '@cloudinary/angular-5.x';
+// import { Cloudinary } from 'cloudinary-core';
+import {CloudinaryModule} from '@cloudinary/ng';
 
 @NgModule({
   
@@ -90,6 +94,8 @@ import { MerchantAccountSettingsComponent } from './merchant/merchant-profile/me
   TableModule,
   CalendarModule,
   // NgbTimepickerModule
+  FileUploadModule,
+  CloudinaryModule,
   ],
   declarations: [
     AppComponent,

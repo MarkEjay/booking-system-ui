@@ -33,13 +33,43 @@ export class MerchantAddServiceComponent implements OnInit {
         description: this.description.value,
         price: this.price.value,
         merchantid: this.currentMerchant.merchantid,
-        duration: this.duration.value
+        duration: this.duration.value,
+        profile:this.previewSource
+
 
       }
 
+
       this.merchantService.createService(serv).subscribe(Response=>{
-        window.location.reload()
+        // window.location.reload()
+        console.log(Response);
+
       })
+
+      this.uploadImage(this.previewSource)
+
       //console.log(this.currentMerchant)
     }
+
+    handleFileInputChange(event:any){
+      const file = event.target.files[0];
+      this.previewFile(file)
+      this.uploadImage(this.previewSource)
+    
+    }
+    previewSource:any;
+    
+    previewFile(file:any){
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      // console.log(reader.readAsDataURL(file))
+      reader.onloadend=()=>{
+        this.previewSource=reader.result
+      }
+    }
+    
+    uploadImage(base64:any){
+      console.log(base64)
+    }
+    
 }
