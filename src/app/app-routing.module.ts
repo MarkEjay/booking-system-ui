@@ -24,10 +24,10 @@ const routes: Routes = [
   {path:'user/profile/settings', component:UserAccountSettingsComponent, canActivate:[UserAuthguardService]},
 
   {path:'user/bookings', component:UserBookingsComponent, canActivate:[UserAuthguardService]},
-  {path:'user/merchant-list', component:UserMerchantListComponent, canActivate:[UserAuthguardService]},
+  {path:'user/merchant-list', component:UserMerchantListComponent, },//canActivate:[UserAuthguardService]
 
   //give each merchant its own page
-  {path:'user/merchant-page/:id', component:UserMerchantPageComponent, canActivate:[UserAuthguardService]},
+  {path:'user/merchant-page/:id', component:UserMerchantPageComponent, },//canActivate:[UserAuthguardService]
   {path:'merchant/login', component:MerchantLoginComponent},
   {path: 'merchant/register', component:MerchantRegisterComponent},
   {path: 'merchant/profile', component:MerchantProfileComponent, canActivate:[MerchantAuthguardService]},

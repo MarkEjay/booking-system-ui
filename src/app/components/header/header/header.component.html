@@ -5,7 +5,7 @@
       <span routerLink="/">Neon</span>
       &nbsp;&nbsp;
 
-      <div *ngIf="isLoggedIn && !isMerchant">
+      <div *ngIf=" !isMerchant">
         <span routerLink="/user/merchant-list">Business</span>
       </div>
       <div *ngIf="isMerchant">

@@ -1,9 +1,10 @@
 <mat-card class="card">
     <form class="example-form">
-    <!-- <mat-form-field  appearance="outline">
-      <mat-label>Merchant Id</mat-label>
-      <input  [formControl]="merchantid" matInput>
+      <mat-form-field  appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input  [formControl]="phoneno" matInput>
     </mat-form-field>
+    <!-- <
     <br> -->
     <!-- <mat-form-field appearance="fill">
       <mat-label>Price</mat-label>
@@ -19,7 +20,6 @@
     <h1>{{details}}</h1>
     <br/>
     <h3>Select a date to confirm your spot</h3>
-    <br>
     <!-- <mat-form-field appearance="outline">
         <input [formControl]="date" matInput  type="date" >
       </mat-form-field>
@@ -47,9 +47,18 @@
       <mat-datepicker   #picker></mat-datepicker>
     </mat-form-field> -->
   <br>
-  <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
-    {{actionBtn}}
-  </button>
+
+
+  <div *ngIf="currentUser">
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
+      {{actionBtn}}
+    </button>  
+  </div>
+  <div *ngIf="!currentUser">
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequestAsGuest()">
+      {{actionBtn}}
+    </button>  
+  </div>
   <button mat-button mat-dialog-close>CANCEL</button>
   
 
