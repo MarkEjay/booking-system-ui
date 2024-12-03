@@ -11,17 +11,33 @@
   
     </mat-form-field>
     <br>
+    <!-- <div>
+      <label for="currency">Choose a currency: </label>
+      <select id="currency" [(ngModel)]="selectedCurrency" (change)="onCurrencyChange()">
+        <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+      </select>
+      <p>Price: {{ price | currency: selectedCurrency }}</p>
+    </div> -->
+    <mat-form-field  appearance="outline">
+      <mat-label>Select</mat-label>
+      <mat-select [formControl]="currency">
+        <mat-option value="CA$">CA$</mat-option>
+        <mat-option value="US$">US$</mat-option>
+        <mat-option value="£">£</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
     <mat-form-field  appearance="outline">
         <mat-label>Price</mat-label>
         <input  [formControl]="price" matInput>
-        CA$
+        
       </mat-form-field>
       
   <br>
   <mat-form-field  appearance="outline">
     <mat-label>Duration</mat-label>
     <input  [formControl]="duration" matInput>
-    e.g 30mins
+    e.g 30mins, 1hr, 1hr30mins
   </mat-form-field>
   <br>
   <!-- <mat-form-field  appearance="outline">

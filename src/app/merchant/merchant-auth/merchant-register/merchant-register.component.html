@@ -81,7 +81,7 @@
        &nbsp;
        <mat-form-field appearance="outline">
          <mat-label>Merchant ID</mat-label>
-         <input required [formControl]="merchantid"matInput placeholder="Merchant ID">
+         <input required [formControl]="merchantid"matInput placeholder="Merchant ID" (keypress)="preventSpace($event)">
        </mat-form-field>
        <br/>
      

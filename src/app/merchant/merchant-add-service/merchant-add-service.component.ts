@@ -12,8 +12,12 @@ import { MerchantService } from 'src/app/merchant/merchant.service';
 export class MerchantAddServiceComponent implements OnInit {
 
   merchantid=new FormControl('');
+  merchantemail=new FormControl('');
+
   title=new FormControl('');
   description=new FormControl('');
+  currency=new FormControl('')
+
   price=new FormControl('');
   duration=new FormControl('')
 
@@ -24,6 +28,7 @@ export class MerchantAddServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
+    console.log(this.currentMerchant)
     
     }
 
@@ -31,8 +36,10 @@ export class MerchantAddServiceComponent implements OnInit {
       let serv={
         title: this.title.value,
         description: this.description.value,
+        currency:this.currency.value,
         price: this.price.value,
         merchantid: this.currentMerchant.merchantid,
+        merchantemail: this.currentMerchant.email,
         duration: this.duration.value,
         profile:this.previewSource
 

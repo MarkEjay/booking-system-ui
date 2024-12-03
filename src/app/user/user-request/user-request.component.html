@@ -1,9 +1,17 @@
 <mat-card class="card">
     <form class="example-form">
+      <div *ngIf="!currentUser">
+
       <mat-form-field  appearance="outline">
       <mat-label>Phone Number</mat-label>
       <input  [formControl]="phoneno" matInput>
     </mat-form-field>
+<br>
+    <mat-form-field  appearance="outline">
+      <mat-label>Email</mat-label>
+      <input  [formControl]="guestemail" matInput>
+    </mat-form-field>
+    </div>
     <!-- <
     <br> -->
     <!-- <mat-form-field appearance="fill">

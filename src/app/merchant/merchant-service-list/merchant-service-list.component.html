@@ -23,7 +23,7 @@
         </ng-container>
         <ng-container matColumnDef="price">
           <th mat-header-cell mat-sort-header *matHeaderCellDef> Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.price | currency:'CAD'}}</td>
+          <td mat-cell *matCellDef="let element"> {{element.currency + element.price}}</td>
         </ng-container>
         <ng-container matColumnDef="duration">
           <th mat-header-cell mat-sort-header *matHeaderCellDef> Duration </th>

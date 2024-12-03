@@ -19,7 +19,7 @@ export class MerchantAccountSettingsComponent {
   city=new FormControl('');
   province= new FormControl('');
   postalcode=new FormControl('');
-
+  merchanturl:any;
   currentUser: any;
   merchant:any;
   updateMsg='';
@@ -74,6 +74,7 @@ export class MerchantAccountSettingsComponent {
         // console.log(usr)
         this.merchant=mer
         this.fname=this.merchant.firstname
+        this.merchanturl='https://neonbooking.vercel.app/user/merchant-page/'+this.merchant.merchantid
         this.email.setValue(this.merchant.email)
 
 

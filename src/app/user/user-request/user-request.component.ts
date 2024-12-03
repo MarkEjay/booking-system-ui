@@ -17,6 +17,7 @@ export class UserRequestComponent implements OnInit{
     created=new FormControl('');
     appointment=new FormControl('');
     phoneno=new FormControl('')
+    guestemail=new FormControl('')
     // date=new FormControl('');
     // time=new FormControl('');
 
@@ -96,13 +97,18 @@ export class UserRequestComponent implements OnInit{
       const rqst = {
         userid: this.loggedUser?.id || 'guest-0000', // Use currentUser ID if logged in, else use guest ID
         useremail: this.loggedUser?.email || this.usrEmail.valueOf(), // Use logged-in email or form email for guest
+        phoneno: this.loggedUser.phone,
         merchantid: this.bookService.merchantid,
         created: this.currentDate,
         appointment: this.appointment.value,
+        //description <-> tittle
         description: this.bookService.title,
         status: 'pending'
       };
 
+      console.log(this.loggedUser)
+      console.log(this.phoneno.value)
+      console.log(this.bookService)
       console.log(rqst)
       console.log(rqst.appointment)
       // console.log( new Date(rqst.appointment))
@@ -115,7 +121,7 @@ export class UserRequestComponent implements OnInit{
         
         userid: "guest-0000",
         // useremail:this.currentUser.email,
-        useremail:'guest-n/a',
+        useremail:this.guestemail.value,
         phoneno:this.phoneno.value,
 
         merchantid: this.bookService.merchantid,

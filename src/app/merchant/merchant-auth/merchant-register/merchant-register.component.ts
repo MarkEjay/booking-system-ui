@@ -79,6 +79,11 @@ export class MerchantRegisterComponent {
     this.uploadImage(this.previewSource)
   }
 
+  preventSpace(event: KeyboardEvent): void {
+    if (event.key === ' ') {
+      event.preventDefault();
+    }
+  }
 //   onUpload(event: UploadEvent) {
 //     this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode' });
 // }
