@@ -48,8 +48,9 @@ export class MerchantAddServiceComponent implements OnInit {
 
 
       this.merchantService.createService(serv).subscribe(Response=>{
-        // window.location.reload()
-        console.log(Response);
+        window.location.reload()
+        // console.log(Response);
+        
 
       })
 
