@@ -18,6 +18,8 @@ export class UserRequestComponent implements OnInit{
     appointment=new FormControl('');
     phoneno=new FormControl('')
     guestemail=new FormControl('')
+    guestfname=new FormControl('')
+    guestlname=new FormControl('')
     // date=new FormControl('');
     // time=new FormControl('');
 
@@ -67,11 +69,11 @@ export class UserRequestComponent implements OnInit{
 
     if (this.currentUser) {
       this.loggedUser=this.authToken.getUser()
-      console.log(this.loggedUser)
-      console.log('Logged in as:', this.currentUser);
+      // console.log(this.loggedUser)
+      // console.log('Logged in as:', this.currentUser);
       this.getUser();
     } else {
-      console.log('Operating as a guest');
+      // console.log('Operating as a guest');
     }
 
       }
@@ -97,6 +99,8 @@ export class UserRequestComponent implements OnInit{
       const rqst = {
         userid: this.loggedUser?.id || 'guest-0000', // Use currentUser ID if logged in, else use guest ID
         useremail: this.loggedUser?.email || this.usrEmail.valueOf(), // Use logged-in email or form email for guest
+        firstname:this.loggedUser.firstName,
+        lastname:this.loggedUser.lastName,
         phoneno: this.loggedUser.phone,
         merchantid: this.bookService.merchantid,
         created: this.currentDate,
@@ -106,11 +110,11 @@ export class UserRequestComponent implements OnInit{
         status: 'pending'
       };
 
-      console.log(this.loggedUser)
-      console.log(this.phoneno.value)
-      console.log(this.bookService)
-      console.log(rqst)
-      console.log(rqst.appointment)
+      // console.log(this.loggedUser)
+      // console.log(this.phoneno.value)
+      // console.log(this.bookService)
+      // console.log(rqst)
+      // console.log(rqst.appointment)
       // console.log( new Date(rqst.appointment))
       this.userService.addRequest(rqst).subscribe(Response=>{
         window.location.reload()
@@ -122,6 +126,8 @@ export class UserRequestComponent implements OnInit{
         userid: "guest-0000",
         // useremail:this.currentUser.email,
         useremail:this.guestemail.value,
+        firstname:this.guestfname.value,
+        lastname:this.guestlname.value,
         phoneno:this.phoneno.value,
 
         merchantid: this.bookService.merchantid,
@@ -132,13 +138,13 @@ export class UserRequestComponent implements OnInit{
         status:"pending"
       }
 
-      console.log(rqst)
-      console.log(rqst.appointment)
+      // console.log(rqst)
+      // console.log(rqst.appointment)
       // console.log( new Date(rqst.appointment))
       this.userService.addRequest(rqst).subscribe(Response=>{
         window.location.reload()
       })
-      console.log(this.phoneno.value)
+      // console.log(this.phoneno.value)
     }
     
     getUser(){
@@ -149,7 +155,7 @@ export class UserRequestComponent implements OnInit{
           this.usrEmail=this.user.email
   
           // console.log(usr)
-           console.log(this.user.email)
+          //  console.log(this.user.email)
         }
       )
       // console.log(this.currentUser.id)

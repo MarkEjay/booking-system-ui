@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit{
       this.name=user.name;
     }
     if(this.authToken.getUser().role=='MERCHANT'){
-      console.log(this.authToken.getUser())
+      // console.log(this.authToken.getUser())
       this.isMerchant=true;
     }
   }

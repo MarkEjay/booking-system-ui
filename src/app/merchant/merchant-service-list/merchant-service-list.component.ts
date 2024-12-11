@@ -31,7 +31,7 @@ export class MerchantServiceListComponent implements OnInit{
     this.merchantService.getService(this.currentUser.merchantid).subscribe(data=>{
       this.service = data.service;
       this.dataSource = new MatTableDataSource(this.service)
-      console.log(this.service)
+      // console.log(this.service)
     })
   }
 

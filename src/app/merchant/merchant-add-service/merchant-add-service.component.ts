@@ -28,7 +28,7 @@ export class MerchantAddServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
-    console.log(this.currentMerchant)
+    // console.log(this.currentMerchant)
     
     }
 
@@ -62,7 +62,7 @@ export class MerchantAddServiceComponent implements OnInit {
     handleFileInputChange(event:any){
       const file = event.target.files[0];
       this.previewFile(file)
-      this.uploadImage(this.previewSource)
+      // this.uploadImage(this.previewSource)
     
     }
     previewSource:any;

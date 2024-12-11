@@ -1,16 +1,26 @@
 <mat-card class="card">
-    <form class="example-form">
-      <div *ngIf="!currentUser">
+  <form class="example-form">
+    <div *ngIf="!currentUser">
 
-      <mat-form-field  appearance="outline">
-      <mat-label>Phone Number</mat-label>
-      <input  [formControl]="phoneno" matInput>
-    </mat-form-field>
-<br>
-    <mat-form-field  appearance="outline">
-      <mat-label>Email</mat-label>
-      <input  [formControl]="guestemail" matInput>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input [formControl]="phoneno" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input [formControl]="guestemail" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input [formControl]="guestfname" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input [formControl]="guestlname" matInput>
+      </mat-form-field>
     </div>
     <!-- <
     <br> -->
@@ -19,14 +29,14 @@
       <input  [formControl]="appointment" matInput>
     </mat-form-field>
     <br> -->
-  <!-- <mat-form-field  appearance="outline">
+    <!-- <mat-form-field  appearance="outline">
       <mat-label>Description</mat-label>
       <textarea  [formControl]="description" matInput></textarea>
   
     </mat-form-field>
     <br> -->
     <h1>{{details}}</h1>
-    <br/>
+    <br />
     <h3>Select a date to confirm your spot</h3>
     <!-- <mat-form-field appearance="outline">
         <input [formControl]="date" matInput  type="date" >
@@ -37,16 +47,17 @@
       </mat-form-field>
       <p-calendar [(ngModel)]="date" [touchUI]="true" [readonlyInput]="true"></p-calendar> -->
 
-      <!-- <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
         <input [(ngModel)]="time" matInput type="time" >
       </mat-form-field> -->
-      <!-- <p>Press spacebar to to pick a date</p> -->
-      <!-- <div class="card flex justify-content-center"> -->
-        <p-calendar  class="max-w-full" [formControl]="appointment" hourFormat="12" [appendTo]="00" [showTime]="true" [touchUI]="true" [readonlyInput]="true" ></p-calendar>
+    <!-- <p>Press spacebar to to pick a date</p> -->
+    <!-- <div class="card flex justify-content-center"> -->
+    <p-calendar class="max-w-full" [formControl]="appointment" hourFormat="12" [appendTo]="00" [showTime]="true"
+      [touchUI]="true" [readonlyInput]="true"></p-calendar>
     <!-- </div> -->
-      <br>
-      
-  
+    <br>
+
+
     <!-- <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
       <input  matInput [formControl]="purchaseDate"[matDatepicker]="picker">
@@ -54,24 +65,24 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker   #picker></mat-datepicker>
     </mat-form-field> -->
-  <br>
+    <br>
 
 
-  <div *ngIf="currentUser">
-    <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
-      {{actionBtn}}
-    </button>  
-  </div>
-  <div *ngIf="!currentUser">
-    <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequestAsGuest()">
-      {{actionBtn}}
-    </button>  
-  </div>
-  <button mat-button mat-dialog-close>CANCEL</button>
-  
+    <div *ngIf="currentUser">
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
+        {{actionBtn}}
+      </button>
+    </div>
+    <div *ngIf="!currentUser">
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequestAsGuest()">
+        {{actionBtn}}
+      </button>
+    </div>
+    <button mat-button mat-dialog-close>CANCEL</button>
 
 
-  <!-- <div class="pickers-wrapper">
+
+    <!-- <div class="pickers-wrapper">
     <div class="form-group">
         <div class="form-date-picker">
             <igx-date-picker #datePicker name="date-picker" [(ngModel)]="date">
@@ -89,9 +100,8 @@
     </p>
 </div> -->
 
-    </form>
-    <!-- <mat-card-actions align="end">
+  </form>
+  <!-- <mat-card-actions align="end">
      
     </mat-card-actions> -->
-  </mat-card>
-  
+</mat-card>

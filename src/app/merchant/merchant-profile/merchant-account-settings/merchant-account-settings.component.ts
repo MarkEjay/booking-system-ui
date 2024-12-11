@@ -61,7 +61,7 @@ export class MerchantAccountSettingsComponent {
     }
     this.merchantService.updateMerchant(mer,this.currentUser.id).subscribe(
       response=>{
-        console.log(response)
+        // console.log(response)
 
         this.updateMsg="Merchant Updated"
       }
@@ -79,7 +79,7 @@ export class MerchantAccountSettingsComponent {
 
 
         // console.log(usr)
-         console.log(this.merchant)
+        //  console.log(this.merchant)
       }
     )
     // console.log(this.currentUser.id)

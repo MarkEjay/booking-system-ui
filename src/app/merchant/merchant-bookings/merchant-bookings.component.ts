@@ -16,8 +16,8 @@ const pending: any[] = [];
 })
 export class MerchantBookingsComponent implements OnInit {
   currentUser: any;
-  tableheaders: string[] = ['created', 'appointment', 'description','phoneno', 'status', 'approve', 'decline']
-  tableBookings: string[] = ['created', 'appointment', 'description', 'status','useremail','phoneno']
+  tableheaders: string[] = [ 'appointment','firstname','lastname', 'description','phoneno', 'approve', 'decline']
+  tableBookings: string[] = ['appointment', 'firstname','lastname','description', 'status','useremail','phoneno']
 
 
   request: Request[] = [];
@@ -79,7 +79,7 @@ export class MerchantBookingsComponent implements OnInit {
       
     })
     // console.log(req.userId)
-    console.log(this.approved)
+    // console.log(this.approved)
 
   }
 

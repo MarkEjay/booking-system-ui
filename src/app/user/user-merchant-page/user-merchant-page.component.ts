@@ -31,7 +31,7 @@ export class UserMerchantPageComponent {
   getService(){
     this.merchantService.getService(this.merchantid).subscribe(data=>{
       this.service = data.service;      
-      console.log(this.service)
+      // console.log(this.service)
     })
   }
  
@@ -39,7 +39,7 @@ export class UserMerchantPageComponent {
     this.dialog.open(UserRequestComponent,{
       data: element
     }).afterClosed().subscribe(result =>{
-      console.log(result)
+      // console.log(result)
     })
     //console.log(element.merchantid)
 }
