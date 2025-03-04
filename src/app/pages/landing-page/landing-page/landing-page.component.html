@@ -41,7 +41,7 @@
     </p-card>
 </div> -->
 
-<div class="main" >
+<!-- <div class="main" > -->
 <!-- <div class="split left">
     <div class="centered">
 
@@ -57,10 +57,71 @@
         <h1>markejay.am@gmail.com</h1>
     </div>
   </div> -->
-  <div class="centered">
+  <!-- <div class="centered">
 
     <h1>Neon is Where everything Happens</h1>
     <p>Book a Service Now!</p>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
 
+
+
+
+
+
+<div *ngIf="!isLoggedIn">
+    <!-- Navbar -->
+    
+  
+    <!-- Main Content -->
+    <div class="content">
+      <div class="text-section">
+        <!-- <p-chip label="Neon" class="chip"></p-chip> -->
+        <p-chip label="NEON" />
+        <br>
+        <br>
+
+        <!-- <h1 class="headline">Effortless Service Booking for Your Business</h1> -->
+        <h1 class="headline">Streamline Your Business with Smart Service Booking</h1>
+        <br>
+        <p class="description">
+            Boost your business with our all-in-one booking app! Let customers book anytime while you manage appointments effortlessly. With smart scheduling, real-time availability, and automated reminders, you’ll never miss a booking. 
+            Perfect for salons, studios, and other services—streamline your scheduling today
+        </p>
+  
+        <br>
+        <div class="buttons">
+          <button pButton type="button" label="Get Started" class="p-button-help" routerLink="/merchant/register"></button>
+          <!-- <button mat-button >About Neon</button> -->
+        </div>
+  
+        <br>
+        <mat-card class="product-card">
+          <mat-card-title>Register as a customer</mat-card-title>
+          <br>
+          <mat-card-content>
+            <p>Create an account to book appointments, manage bookings, and stay connected with your favorite businesses—quick and easy.</p>
+            <p class="price">
+                <br>
+              <!-- <span class="old-price">$350</span> <span class="new-price">$299</span> -->
+            </p>
+            <button pButton type="button" label="Create an account" class="p-button-outlined p-button-secondary" routerLink="/user/register" ></button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- Image Section -->
+      <div class="image-section">
+        <!-- <img src="https://res.cloudinary.com/dz0rcynyz/image/upload/v1739154029/profile/neon_img_j08nrw.jpg" class="model-image"> -->
+        <!-- <img src="https://res.cloudinary.com/dz0rcynyz/image/upload/v1739163797/profile/neon_img4_xxbzf7.jpg" class="model-image"> -->
+        <img src="https://res.cloudinary.com/dz0rcynyz/image/upload/v1740158505/profile/neon_img5_z54j7r.jpg" class="model-image">
+        <!-- <img src="https://res.cloudinary.com/dz0rcynyz/image/upload/v1740813926/profile/business-to-business_ymtebh.png" class="model-image"> -->
+        <!-- <img src="https://res.cloudinary.com/dz0rcynyz/image/upload/v1739161456/profile/neon_img2_qwkjwo.webp" class="model-image"> -->
+  
+        <!-- <div class="label label-top-right">Adapts to skin tone ✨</div>
+        <div class="label label-left">Hydrating formula ✨</div>
+        <div class="label label-bottom-right">Lightweight coverage ✨</div> -->
+      </div>
+    </div>
+  </div>
+  

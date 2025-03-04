@@ -22,7 +22,7 @@ export class MerchantProfileComponent implements OnInit{
     this.lname=this.currentUser.lastname
     this.email=this.currentUser.email
     this.phone=this.currentUser.phone
-    console.log(this.currentUser.merchantid)
+    // console.log(this.currentUser.merchantid)
   }
 
   logout():void{

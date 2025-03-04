@@ -38,7 +38,11 @@ import { MerchantServiceListComponent } from './merchant/merchant-service-list/m
 import { MerchantAddServiceComponent } from './merchant/merchant-add-service/merchant-add-service.component';
 import { UserMerchantPageComponent } from './user/user-merchant-page/user-merchant-page.component';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
+
+import {ListboxModule} from 'primeng/listbox';
 import { ButtonModule } from 'primeng/button';
 import {StyleClassModule} from 'primeng/styleclass';
 import { LandingPageComponent } from './pages/landing-page/landing-page/landing-page.component';
@@ -48,6 +52,14 @@ import { DataViewModule,DataViewLayoutOptions } from 'primeng/dataview';
 import { OrderListModule } from 'primeng/orderlist';
 import { TableModule } from 'primeng/table';
 import { CalendarModule } from 'primeng/calendar';
+import {DropdownModule} from 'primeng/dropdown';
+// import { TabsModule } from 'primeng/tabs';
+import { TabViewModule } from 'primeng/tabview';
+
+
+
+// PrimeNG
+import { ChipModule } from 'primeng/chip';
 
 import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
@@ -60,6 +72,13 @@ import { FileUploadModule } from 'primeng/fileupload';
 // import { CloudinaryModule } from '@cloudinary/angular-5.x';
 // import { Cloudinary } from 'cloudinary-core';
 import {CloudinaryModule} from '@cloudinary/ng';
+import { SchedulerComponent } from './user/scheduler/scheduler.component';
+import { MerchantAvailabilityComponent } from './merchant/merchant-availability/merchant-availability.component';
+// import { MerchantAvailabilityComponent } from './merchant/merchant-availability/merchant-availability.component';
+
+
+import {MegaMenuModule} from 'primeng/megamenu';
+
 
 @NgModule({
   
@@ -96,6 +115,20 @@ import {CloudinaryModule} from '@cloudinary/ng';
   // NgbTimepickerModule
   FileUploadModule,
   CloudinaryModule,
+  
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  ListboxModule,
+  DropdownModule,
+  MegaMenuModule,
+
+
+  ButtonModule,
+  CardModule,
+  ChipModule,
+
+  TabViewModule
   ],
   declarations: [
     AppComponent,
@@ -119,6 +152,8 @@ import {CloudinaryModule} from '@cloudinary/ng';
     MerchantCalenderComponent,
     UserAccountSettingsComponent,
     MerchantAccountSettingsComponent,
+    SchedulerComponent,
+    MerchantAvailabilityComponent,
   ],
   //providers: [],
   bootstrap: [AppComponent]

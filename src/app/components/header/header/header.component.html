@@ -2,12 +2,19 @@
 
 <mat-toolbar color="primary">
     <mat-toolbar-row>
+      
       <span routerLink="/">Neon</span>
       &nbsp;&nbsp;
 
+      
       <div *ngIf=" !isMerchant">
         <span routerLink="/user/merchant-list">Business</span>
       </div>
+
+      <!-- <button mat-button>About</button>
+      <button mat-button>Product</button>
+      <button mat-button>Contacts</button> -->
+      
       <div *ngIf="isMerchant">
         <span routerLink="merchant/view-service">Services</span>
       </div>
@@ -54,6 +61,9 @@
         <div *ngIf="isMerchant" routerLink="/merchant/profile">Profile</div>
       <br>
         <div *ngIf="isMerchant" routerLink="/merchant/bookings">Bookings</div>
+        <br>
+        <div *ngIf="isMerchant" routerLink="/merchant/add-availability">Availability</div>
+
 </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>

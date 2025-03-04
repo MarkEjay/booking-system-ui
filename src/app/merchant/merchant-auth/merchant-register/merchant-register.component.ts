@@ -105,7 +105,7 @@ previewFile(file:any){
 }
 
 uploadImage(base64:any){
-  console.log(base64)
+  // console.log(base64)
 }
 
 // profile(){

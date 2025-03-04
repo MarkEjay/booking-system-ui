@@ -1,0 +1,26 @@
+<div class="scheduler-container">
+    <div class="header">
+      <h2>Select a Date & Time</h2>
+    </div>
+  
+    
+    <div class="calendar-container">
+        <p-calendar [(ngModel)]="selectedDate" (onSelect)="onDateChange($event)" [inline]="true"></p-calendar>
+        
+    </div>
+
+  
+    <div class="time-slot-container">
+      <h3>Available Time Slots</h3>
+      <div *ngFor="let slot of timeSlots" class="time-slot" (click)="selectTimeSlot(slot)" [class.selected]="slot === selectedTimeSlot">
+        {{ slot }}
+      </div>
+    </div>
+  
+    <div class="footer">
+      <!-- <p>Duration: 1 hr 30 min</p>
+      <p>Location: Remote</p> -->
+      <button mat-raised-button color="primary" (click)="confirmSelection()">Confirm</button>
+    </div>
+  </div>
+  

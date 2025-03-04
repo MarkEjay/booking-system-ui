@@ -39,7 +39,7 @@ export class UserMerchantPageComponent {
     this.dialog.open(UserRequestComponent,{
       data: element
     }).afterClosed().subscribe(result =>{
-      // console.log(result)
+      // console.log(merchantid)
     })
     //console.log(element.merchantid)
 }

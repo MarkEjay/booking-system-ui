@@ -17,6 +17,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page/landing-
 import { MerchantCalenderComponent } from './merchant/merchant-calender/merchant-calender.component';
 import { UserAccountSettingsComponent } from './user/user-profile/user-account-settings/user-account-settings.component';
 import { MerchantAccountSettingsComponent } from './merchant/merchant-profile/merchant-account-settings/merchant-account-settings.component';
+import { SchedulerComponent } from './user/scheduler/scheduler.component';
+import { MerchantAvailabilityComponent } from './merchant/merchant-availability/merchant-availability.component';
 const routes: Routes = [
   {path:'user/login', component: LoginComponent},
   {path:'user/register', component: RegisterComponent},
@@ -24,6 +26,9 @@ const routes: Routes = [
   {path:'user/profile/settings', component:UserAccountSettingsComponent, canActivate:[UserAuthguardService]},
 
   {path:'user/bookings', component:UserBookingsComponent, canActivate:[UserAuthguardService]},
+  {path:'user/schedule', component:SchedulerComponent, },
+
+
   {path:'user/merchant-list', component:UserMerchantListComponent, },//canActivate:[UserAuthguardService]
 
   //give each merchant its own page
@@ -35,6 +40,8 @@ const routes: Routes = [
   {path: 'merchant/view-service', component:MerchantServiceListComponent, canActivate:[MerchantAuthguardService]},
   {path: 'merchant/view-calender', component:MerchantCalenderComponent, canActivate:[MerchantAuthguardService]},
   {path:'merchant/profile/settings', component:MerchantAccountSettingsComponent, canActivate:[MerchantAuthguardService]},
+  {path:'merchant/add-availability', component:MerchantAvailabilityComponent},
+
 
 
   

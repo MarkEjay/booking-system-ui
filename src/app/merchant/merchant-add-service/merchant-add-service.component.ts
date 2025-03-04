@@ -28,7 +28,7 @@ export class MerchantAddServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
-    // console.log(this.currentMerchant)
+    console.log(this.currentMerchant)
     
     }
 
@@ -41,7 +41,8 @@ export class MerchantAddServiceComponent implements OnInit {
         merchantid: this.currentMerchant.merchantid,
         merchantemail: this.currentMerchant.email,
         duration: this.duration.value,
-        profile:this.previewSource
+        profile:this.previewSource,
+        uniqueId:this.currentMerchant.id
 
 
       }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { dA } from '@fullcalendar/core/internal-common';
 import { Observable } from 'rxjs';
 import { BASEURL } from '../constants';
 import { Merchant } from './merchant';
@@ -55,6 +56,21 @@ export class MerchantService {
   
   getMerchant(id:String):Observable<any>{
     return this.http.get(`${BASEURL}/api/merchant/get-merchant/${id}`)
+  }
+  addAvailability(merchant:any){
+    return this.http.post(`${BASEURL}/api/merchant/add-availability`,merchant)
+
+  }
+  getAvailability(id:string){
+    return this.http.get(`${BASEURL}/api/merchant/view-availability/${id}`)
+
+  }
+  deleteAvailability(merchantId:any,date:any,time:any):Observable<any>{
+    const options = {
+      body: { date, time }
+  };
+    return this.http.delete(`${BASEURL}/api/merchant/delete-availability/${merchantId}`, options)
+
   }
 
 

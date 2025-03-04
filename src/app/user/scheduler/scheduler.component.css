@@ -1,6 +1,35 @@
+/* Main container for the entire scheduler */
+.scheduler-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f9f9f9; /* Light, neutral background */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
 
+/* Header with clean, minimal style */
+.header {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333; /* Dark text for high contrast */
+  margin-bottom: 30px;
+}
 
-
+/* Calendar container for holding the calendar */
+.calendar-container {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: none; /* Remove shadow for a cleaner look */
+  border: 1px solid #ddd; /* Light border to define the area */
+}
 
 /* Container for time slots */
 .time-slot-container {
@@ -41,6 +70,14 @@
   background-color: #6b4caf; /* Green for selection */
   color: white;
   border-color: #6b4caf;
+}
+
+/* Footer section */
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
 }
 
 /* Media Queries for mobile responsiveness */
