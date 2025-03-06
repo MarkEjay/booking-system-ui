@@ -3,6 +3,8 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MerchantService } from 'src/app/merchant/merchant.service';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-merchant-add-service',
@@ -24,7 +26,7 @@ export class MerchantAddServiceComponent implements OnInit {
   currentMerchant:any;
   actionBtn:string="Save"
 
-  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ){}
+  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private cdr: ChangeDetectorRef){}
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
@@ -51,8 +53,9 @@ export class MerchantAddServiceComponent implements OnInit {
       this.merchantService.createService(serv).subscribe(Response=>{
         window.location.reload()
         // console.log(Response);
-            // event.preventDefault(); // Stops the default page reload
+        this.cdr.detectChanges(); // This will update the view without reloading the page
 
+        
 
       })
 
