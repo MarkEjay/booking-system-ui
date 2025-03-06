@@ -51,7 +51,7 @@ export class MerchantAddServiceComponent implements OnInit {
       this.merchantService.createService(serv).subscribe(Response=>{
         // window.location.reload()
         // console.log(Response);
-            event.preventDefault(); // Stops the default page reload
+            // event.preventDefault(); // Stops the default page reload
 
 
       })
