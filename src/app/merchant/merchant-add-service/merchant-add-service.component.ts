@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MerchantService } from 'src/app/merchant/merchant.service';
 import { ChangeDetectorRef } from '@angular/core';
+import { MerchantServiceListComponent } from '../merchant-service-list/merchant-service-list.component';
 
 
 @Component({
@@ -26,11 +27,13 @@ export class MerchantAddServiceComponent implements OnInit {
   currentMerchant:any;
   actionBtn:string="Save"
 
-  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private cdr: ChangeDetectorRef){}
+  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private cdr: ChangeDetectorRef, private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
     console.log(this.currentMerchant)
+    this.merchantService.getService(this.currentMerchant.id)
+
     
     }
 
@@ -51,9 +54,12 @@ export class MerchantAddServiceComponent implements OnInit {
 
 
       this.merchantService.createService(serv).subscribe(Response=>{
-        window.location.reload()
+        // window.location.reload()
+        this.dialogRef.close(Response); 
+
         // console.log(Response);
         this.cdr.detectChanges(); // This will update the view without reloading the page
+        // this.merchantService.getService(this.currentMerchant.id)
 
         
 
