@@ -5,6 +5,8 @@ import { AuthenticationService } from 'src/app/authentication.service';
 import { MerchantAddServiceComponent } from '../merchant-add-service/merchant-add-service.component';
 import { MerchantService } from '../merchant.service';
 import { Service } from '../service';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-merchant-service-list',
@@ -25,7 +27,8 @@ export class MerchantServiceListComponent implements OnInit{
     this.getService()
   }
 
-  constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService){}
+  constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService,  private cdr: ChangeDetectorRef  // Inject ChangeDetectorRef
+  ){}
 
   getService(){
     this.merchantService.getService(this.currentUser.merchantid).subscribe(data=>{
@@ -43,7 +46,11 @@ export class MerchantServiceListComponent implements OnInit{
       //console.log("this is updat")
       // window.location.reload()
             // event?.preventDefault()
+      this.service.push(result); // Add new service to list
+      this.dataSource.data = [...this.service]; // Force Angular to recognize change
+      this.cdr.detectChanges(); // Trigger change detection
       this.getService()
+
 
     })
   }
