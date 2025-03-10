@@ -55,10 +55,10 @@ export class MerchantAddServiceComponent implements OnInit {
 
       this.merchantService.createService(serv).subscribe(Response=>{
         // window.location.reload()
-        this.dialogRef.close(Response); 
+        // this.dialogRef.close(Response); 
 
         // console.log(Response);
-        this.cdr.detectChanges(); // This will update the view without reloading the page
+        // this.cdr.detectChanges(); // This will update the view without reloading the page
         // this.merchantService.getService(this.currentMerchant.id)
 
         
