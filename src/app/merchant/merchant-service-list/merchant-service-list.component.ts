@@ -42,18 +42,24 @@ export class MerchantServiceListComponent implements OnInit{
     const dialogRef = this.dialog.open(MerchantAddServiceComponent);
 
 
-    dialogRef.afterClosed().subscribe(result =>{
-      //console.log("this is updat")
-            // event?.preventDefault()
-      // this.service.push(result); // Add new service to list
-      // this.dataSource.data = [...this.service]; // Force Angular to recognize change
-      // this.cdr.detectChanges(); // Trigger change detection
-      this.getService()
-      window.location.reload()
+    // dialogRef.afterClosed().subscribe(result =>{
+     
+    //   this.getService()
+    //   setTimeout(() => {
+    //     window.location.href = window.location.href; // More reliable than reload()
+    //   }, 500);
 
 
 
-    })
+    // })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.service.push(result);
+        this.dataSource.data = [...this.service]; // Force UI update
+        this.cdr.detectChanges(); // Ensure change detection
+      }
+    });
   }
 
   deleteService(id: string) {
