@@ -3,9 +3,6 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MerchantService } from 'src/app/merchant/merchant.service';
-import { ChangeDetectorRef } from '@angular/core';
-import { MerchantServiceListComponent } from '../merchant-service-list/merchant-service-list.component';
-
 
 @Component({
   selector: 'app-merchant-add-service',
@@ -27,13 +24,11 @@ export class MerchantAddServiceComponent implements OnInit {
   currentMerchant:any;
   actionBtn:string="Save"
 
-  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private cdr: ChangeDetectorRef, private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
+  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ){}
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
     console.log(this.currentMerchant)
-    this.merchantService.getService(this.currentMerchant.id)
-
     
     }
 
@@ -54,24 +49,9 @@ export class MerchantAddServiceComponent implements OnInit {
 
 
       this.merchantService.createService(serv).subscribe(Response=>{
-        // window.location.reload()
-        // this.dialogRef.close(Response); 
-
+        window.location.reload()
         // console.log(Response);
-        // this.cdr.detectChanges(); // This will update the view without reloading the page
-        // this.merchantService.getService(this.currentMerchant.id)
-
         
-        // window.location.reload()
-        console.log("Service Created:", Response);
-
-        this.dialogRef.close(Response); 
-
-        // Delay reload to ensure dialog closes first (fixes mobile issues)
-        // setTimeout(() => {
-        //   window.location.href = window.location.href; // More reliable than reload()
-        // }, 500);
-    // this.dialogRef.close(response); // 
 
       })
 
