@@ -41,7 +41,9 @@ export class MerchantServiceListComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result =>{
       //console.log("this is updat")
-      window.location.reload()
+      // window.location.reload()
+      history.go(0);
+
     })
   }
 
