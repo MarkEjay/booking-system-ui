@@ -62,6 +62,7 @@ export class MerchantAddServiceComponent implements OnInit {
         // this.merchantService.getService(this.currentMerchant.id)
 
         
+        window.location.reload()
 
       })
 
