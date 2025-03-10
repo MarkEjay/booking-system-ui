@@ -50,9 +50,9 @@ export class MerchantAddServiceComponent implements OnInit {
 
       this.merchantService.createService(serv).subscribe(Response=>{
         // window.location.reload()
-        history.go(0);
+        // history.go(0);
 
-        // window.location.href = window.location.href;
+        window.location.href = window.location.href;
 
         // console.log(Response);
         
