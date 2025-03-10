@@ -62,7 +62,13 @@ export class MerchantAddServiceComponent implements OnInit {
         // this.merchantService.getService(this.currentMerchant.id)
 
         
-        window.location.reload()
+        // window.location.reload()
+        this.dialogRef.close(Response); 
+
+        // Delay reload to ensure dialog closes first (fixes mobile issues)
+        setTimeout(() => {
+          window.location.href = window.location.href; // More reliable than reload()
+        }, 500);
 
       })
 
