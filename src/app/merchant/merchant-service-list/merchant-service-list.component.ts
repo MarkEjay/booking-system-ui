@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthenticationService } from 'src/app/authentication.service';
@@ -25,7 +25,7 @@ export class MerchantServiceListComponent implements OnInit{
     this.getService()
   }
 
-  constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService){}
+  constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService,private cdr: ChangeDetectorRef ){}
 
   getService(){
     this.merchantService.getService(this.currentUser.merchantid).subscribe(data=>{
@@ -41,19 +41,29 @@ export class MerchantServiceListComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result =>{
       //console.log("this is updat")
+      // console.log(result)
       // window.location.reload()
-      history.go(0);
+      // history.go(0);
 
+      if (result) { // Only update if a new service was added
+        this.getService();
+        this.cdr.detectChanges(); // Update the view
+      }
     })
   }
 
   deleteService(id: string) {
-    this.merchantService.deleteService(id).subscribe(response =>{
-      window.location.reload()
-      console.log('deleted')
+    // this.merchantService.deleteService(id).subscribe(response =>{
+    //   window.location.reload()
+    //   console.log('deleted')
 
 
-    })
+    // })
+
+    this.merchantService.deleteService(id).subscribe(response => {
+      this.getService(); // Fetch updated list instead of reloading
+      setTimeout(() => this.cdr.detectChanges(), 0);
+    });
     // this.merchantService.deleteRequest(id).subscribe(response => {
     //   this.getRequest()
     //   window.location.reload()

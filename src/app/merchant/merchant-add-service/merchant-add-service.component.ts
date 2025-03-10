@@ -24,7 +24,7 @@ export class MerchantAddServiceComponent implements OnInit {
   currentMerchant:any;
   actionBtn:string="Save"
 
-  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ){}
+  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
@@ -52,7 +52,9 @@ export class MerchantAddServiceComponent implements OnInit {
         // window.location.reload()
         // history.go(0);
 
-        window.location.href = window.location.href;
+        // window.location.href = window.location.href;
+        this.dialogRef.close(Response); // Close the dialog and return the response
+
 
         // console.log(Response);
         
