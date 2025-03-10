@@ -44,12 +44,13 @@ export class MerchantServiceListComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(result =>{
       //console.log("this is updat")
-      window.location.reload()
             // event?.preventDefault()
       // this.service.push(result); // Add new service to list
       // this.dataSource.data = [...this.service]; // Force Angular to recognize change
       // this.cdr.detectChanges(); // Trigger change detection
-      // this.getService()
+      this.getService()
+      window.location.reload()
+
 
 
     })
