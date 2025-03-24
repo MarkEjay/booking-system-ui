@@ -46,10 +46,9 @@ export class MerchantServiceListComponent implements OnInit{
       // window.location.reload()
       // history.go(0);
 
-      if (result) { // Only update if a new service was added
         this.getService();
         this.cdr.detectChanges(); // Update the view
-      }
+      
     })
   }
 

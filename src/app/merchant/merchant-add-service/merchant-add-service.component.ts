@@ -50,6 +50,7 @@ export class MerchantAddServiceComponent implements OnInit {
 
 
       this.merchantService.createService(serv).subscribe(Response=>{
+        console.log("Added successfully")
         window.location.reload()
         // history.go(0);
 
