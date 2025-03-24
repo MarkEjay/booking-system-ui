@@ -47,7 +47,7 @@ export class MerchantServiceListComponent implements OnInit{
       // history.go(0);
 
         this.getService();
-        this.cdr.detectChanges(); // Update the view
+        // this.cdr.detectChanges(); // Update the view
       
     })
   }
