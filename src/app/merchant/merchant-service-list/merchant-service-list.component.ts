@@ -82,10 +82,12 @@ export class MerchantServiceListComponent implements OnInit{
     dialogEdit.afterClosed().subscribe(result =>{
      
 
-      if (result) { // Only update if a new service was added
-        this.getService();
-        this.cdr.detectChanges(); // Update the view
-      }
+      this.getService(); // Fetch updated list instead of reloading
+      setTimeout(() => this.cdr.detectChanges(), 0);
+      // if (result) { // Only update if a new service was added
+      //   this.getService(); // Fetch updated list instead of reloading
+      //   setTimeout(() => this.cdr.detectChanges(), 0);
+      // }
     })
   }
 
