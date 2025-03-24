@@ -50,11 +50,12 @@ export class MerchantAddServiceComponent implements OnInit {
 
 
       this.merchantService.createService(serv).subscribe(Response=>{
-        // window.location.reload()
+        window.location.reload()
         // history.go(0);
 
+        
         // window.location.href = window.location.href;
-        this.dialogRef.close(Response); // Close the dialog and return the response
+        // this.dialogRef.close(Response); // Close the dialog and return the response
 
 
         // console.log(Response);
