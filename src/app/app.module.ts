@@ -78,6 +78,7 @@ import { MerchantAvailabilityComponent } from './merchant/merchant-availability/
 
 
 import {MegaMenuModule} from 'primeng/megamenu';
+import { MerchantEditServiceComponent } from './merchant/merchant-edit-service/merchant-edit-service.component';
 
 
 @NgModule({
@@ -154,6 +155,7 @@ import {MegaMenuModule} from 'primeng/megamenu';
     MerchantAccountSettingsComponent,
     SchedulerComponent,
     MerchantAvailabilityComponent,
+    MerchantEditServiceComponent,
   ],
   //providers: [],
   bootstrap: [AppComponent]

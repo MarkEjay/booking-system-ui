@@ -43,10 +43,16 @@ export class MerchantService {
   getService(id: string):Observable<any>{
     return this.http.get(`${BASEURL}/api/merchant/view-service/${id}`)
   }
+  getOneService(id:string):Observable<any>{
+    return this.http.get(`${BASEURL}/api/merchant/get-one-service/${id}`)
+  }
 
   deleteService(id:string){
 
     return this.http.delete(`${BASEURL}/api/merchant/delete-service/${id}`)
+  }
+  editService(service:any, id:string){
+    return this.http.put(`${BASEURL}/api/merchant/edit-service/${id}`,service)
   }
 
   updateMerchant(merchant:any, id:string){
@@ -72,6 +78,8 @@ export class MerchantService {
     return this.http.delete(`${BASEURL}/api/merchant/delete-availability/${merchantId}`, options)
 
   }
+
+
 
 
 }

@@ -24,7 +24,8 @@ export class MerchantAddServiceComponent implements OnInit {
   currentMerchant:any;
   actionBtn:string="Save"
 
-  constructor(@Inject(MAT_DIALOG_DATA) public editService:any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
+  //
+  constructor(private authToken: AuthenticationService ,private merchantService: MerchantService ,private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()

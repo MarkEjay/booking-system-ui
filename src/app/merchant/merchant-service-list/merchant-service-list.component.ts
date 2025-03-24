@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MerchantAddServiceComponent } from '../merchant-add-service/merchant-add-service.component';
+import { MerchantEditServiceComponent } from '../merchant-edit-service/merchant-edit-service.component';
 import { MerchantService } from '../merchant.service';
 import { Service } from '../service';
 
@@ -13,7 +14,7 @@ import { Service } from '../service';
 })
 export class MerchantServiceListComponent implements OnInit{
   
-  tableheaders: string[] = ['merchantid', 'title','description', 'price','duration','delete']
+  tableheaders: string[] = ['merchantid', 'title','description', 'price','duration','edit','delete']
   currentUser: any;
 
   service:Service[]=[];
@@ -71,6 +72,24 @@ export class MerchantServiceListComponent implements OnInit{
     //   console.log('deleted')
     // })
   }
+  openEdit(id:any){
+    const dialogEdit = this.dialog.open(MerchantEditServiceComponent,{
+      data: {
+        dataKey: id
+      }
+    });
+
+    dialogEdit.afterClosed().subscribe(result =>{
+     
+
+      if (result) { // Only update if a new service was added
+        this.getService();
+        this.cdr.detectChanges(); // Update the view
+      }
+    })
+  }
+
+  
 
 
 }
