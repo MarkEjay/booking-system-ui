@@ -50,7 +50,10 @@ export class MerchantEditServiceComponent implements OnInit {
     }
     this.merchantService.editService(edit,id).subscribe(response=>{
       console.log("Edited successfully")
-      this.dialogRef.close(Response); // Close the dialog and return the response
+      // this.dialogRef.close(Response); // Close the dialog and return the response
+      // setTimeout(() => this.cdr.detectChanges(), 0);
+      window.location.reload()
+
 
     })
 
