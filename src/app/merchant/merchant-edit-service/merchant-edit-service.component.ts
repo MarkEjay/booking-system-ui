@@ -46,8 +46,15 @@ export class MerchantEditServiceComponent implements OnInit {
       description:this.description.value,
       currency:this.currency.value,
       price:this.price.value,
-      duration:this.duration.value
+      duration:this.duration.value,
+      profile:this.previewSource,
+
     }
+    if(this.previewSource){
+      this.uploadImage(this.previewSource)
+      console.log(this.previewSource)
+    }
+    
     this.merchantService.editService(edit,id).subscribe(response=>{
       console.log("Edited successfully")
       // this.dialogRef.close(Response); // Close the dialog and return the response
@@ -58,6 +65,30 @@ export class MerchantEditServiceComponent implements OnInit {
     })
 
   }
+  handleFileInputChange(event:any){
+    const file = event.target.files[0];
+    // console.log(event.target.files)
+    this.previewFile(file)
+    // this.uploadImage(this.previewSource)
+  
+  }
+  previewSource:any;
+  
+  previewFile(file:any){
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    // console.log(reader.readAsDataURL(file))
+    reader.onloadend=()=>{
+      this.previewSource=reader.result
+    }
+    // console.log(reader)
+  }
+  
+  
+  uploadImage(base64:any){
+    console.log(base64)
+  }
+  
   getOneService(serviceId:any){
     this.merchantService.getOneService(serviceId).subscribe(data => {
       this.title.setValue(data.title)
@@ -67,6 +98,7 @@ export class MerchantEditServiceComponent implements OnInit {
       this.price.setValue(data.price)
 
       this.duration.setValue(data.duration)
+      this.previewSource= data.profile
 
 
       console.log(data)

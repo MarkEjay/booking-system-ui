@@ -13,6 +13,7 @@ export class MerchantAddServiceComponent implements OnInit {
 
   merchantid=new FormControl('');
   merchantemail=new FormControl('');
+  companyname=new FormControl('');
 
   title=new FormControl('');
   description=new FormControl('');
@@ -25,11 +26,12 @@ export class MerchantAddServiceComponent implements OnInit {
   actionBtn:string="Save"
 
   //
-  constructor(private authToken: AuthenticationService ,private merchantService: MerchantService ,private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
+  constructor(@Inject(MAT_DIALOG_DATA) public addData: any,private authToken: AuthenticationService ,private merchantService: MerchantService ,private dialogRef: MatDialogRef<MerchantAddServiceComponent>){}
 
   ngOnInit(): void {
     this.currentMerchant=this.authToken.getUser()
     console.log(this.currentMerchant)
+    console.log(this.addData)
     
     }
 
@@ -40,6 +42,7 @@ export class MerchantAddServiceComponent implements OnInit {
         currency:this.currency.value,
         price: this.price.value,
         merchantid: this.currentMerchant.merchantid,
+        companyname:this.currentMerchant.companyname,
         merchantemail: this.currentMerchant.email,
         duration: this.duration.value,
         profile:this.previewSource,
@@ -48,23 +51,19 @@ export class MerchantAddServiceComponent implements OnInit {
 
       }
 
-
-      this.merchantService.createService(serv).subscribe(Response=>{
-        console.log("Added successfully")
-        window.location.reload()
-        // history.go(0);
-
-        
-        // window.location.href = window.location.href;
-        // this.dialogRef.close(Response); // Close the dialog and return the response
-
-
-        // console.log(Response);
+      this.dialogRef.close({data:serv});
+      
+      // this.merchantService.createService(serv).subscribe(Response=>{
+      //   console.log("Added successfully")
+      //   window.location.reload()
         
 
-      })
+      // })
 
-      this.uploadImage(this.previewSource)
+      if(this.previewSource){
+        this.uploadImage(this.previewSource)
+
+      }
 
       //console.log(this.currentMerchant)
     }

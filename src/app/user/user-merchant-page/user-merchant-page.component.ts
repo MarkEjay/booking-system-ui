@@ -20,6 +20,7 @@ export class UserMerchantPageComponent {
 
   //getId:any;
   merchantid: any;
+  companyname:any;
 
   constructor(public dialog: MatDialog,private merchantService: MerchantService, private authToken: AuthenticationService, private activatedRoute: ActivatedRoute){}
   ngOnInit(): void {

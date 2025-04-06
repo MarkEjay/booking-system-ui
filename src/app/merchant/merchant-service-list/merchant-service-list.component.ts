@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthenticationService } from 'src/app/authentication.service';
@@ -7,51 +7,90 @@ import { MerchantEditServiceComponent } from '../merchant-edit-service/merchant-
 import { MerchantService } from '../merchant.service';
 import { Service } from '../service';
 
+
 @Component({
   selector: 'app-merchant-service-list',
   templateUrl: './merchant-service-list.component.html',
   styleUrls: ['./merchant-service-list.component.css']
 })
-export class MerchantServiceListComponent implements OnInit{
-  
-  tableheaders: string[] = ['merchantid', 'title','description', 'price','duration','edit','delete']
+export class MerchantServiceListComponent implements OnInit {
+
+  tableheaders: string[] = ['merchantid', 'title', 'description', 'price', 'duration', 'edit', 'delete']
   currentUser: any;
 
-  service:Service[]=[];
+  service: Service[] = [];
 
-  dataSource! : MatTableDataSource<any>
+  dataSource!: MatTableDataSource<any>
 
   ngOnInit(): void {
-    this.currentUser=this.authToken.getUser()
+    this.currentUser = this.authToken.getUser()
     this.getService()
   }
 
-  constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService,private cdr: ChangeDetectorRef ){}
+  constructor(public dialog: MatDialog, private merchantService: MerchantService, private authToken: AuthenticationService, private cdr: ChangeDetectorRef) { }
 
-  getService(){
-    this.merchantService.getService(this.currentUser.merchantid).subscribe(data=>{
+  getService() {
+    this.merchantService.getService(this.currentUser.merchantid).subscribe(data => {
       this.service = data.service;
       this.dataSource = new MatTableDataSource(this.service)
       // console.log(this.service)
     })
   }
 
-  openDialog(){
-    const dialogRef = this.dialog.open(MerchantAddServiceComponent);
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(MerchantAddServiceComponent);
 
 
-    dialogRef.afterClosed().subscribe(result =>{
-      //console.log("this is updat")
-      // console.log(result)
-      // window.location.reload()
-      // history.go(0);
+  //   dialogRef.afterClosed().subscribe(result => {
 
-        this.getService();
-        // this.cdr.detectChanges(); // Update the view
+  //     if (result?.data) { // Ensure data exists
+  //       this.merchantService.createService(result.data).subscribe(response => {
+  //         console.log("Added successfully", response);
+  
+  //         // Ensure response is valid before updating UI
+  //         if (response) {
+  //           this.service = [...this.service, response]; // Append new service
+  //           this.dataSource.data = this.service; // Update MatTable data source
+  //           this.cdr.detectChanges(); // Force UI update
+  //         }
+  //       }
+  //       )
+  //     }
+
       
-    })
-  }
+  //     // this.getService();
 
+  //     //  this.merchantService.createService(result.data).subscribe(Response=>{
+  //     //   console.log("Added successfully")
+
+
+  //     // })
+  //     // this.cdr.detectChanges(); // Update the view
+
+  //   })
+  // }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(MerchantAddServiceComponent);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("Dialog Result:", result); // Debugging
+  
+      if (result?.data) { 
+        this.merchantService.createService(result.data).subscribe(response => {
+          console.log("API Response:", response); // Debugging
+  
+          if (response) {
+            this.service = [...this.service, response];
+            this.dataSource.data = this.service; // Update MatTable
+            this.cdr.detectChanges(); // 
+          }
+        }, error => {
+          console.error("Error creating service:", error); // Debugging errors
+        });
+      }
+    });
+  }
   deleteService(id: string) {
     // this.merchantService.deleteService(id).subscribe(response =>{
     //   window.location.reload()
@@ -71,15 +110,15 @@ export class MerchantServiceListComponent implements OnInit{
     //   console.log('deleted')
     // })
   }
-  openEdit(id:any){
-    const dialogEdit = this.dialog.open(MerchantEditServiceComponent,{
+  openEdit(id: any) {
+    const dialogEdit = this.dialog.open(MerchantEditServiceComponent, {
       data: {
         dataKey: id
       }
     });
 
-    dialogEdit.afterClosed().subscribe(result =>{
-     
+    dialogEdit.afterClosed().subscribe(result => {
+
 
       this.getService(); // Fetch updated list instead of reloading
       setTimeout(() => this.cdr.detectChanges(), 0);
@@ -90,7 +129,7 @@ export class MerchantServiceListComponent implements OnInit{
     })
   }
 
-  
+
 
 
 }

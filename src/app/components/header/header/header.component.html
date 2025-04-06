@@ -3,7 +3,13 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
       
-      <span routerLink="/">Neon</span>
+      <!-- <button><span routerLink="/">Neon</span></button> -->
+      
+      <!-- <button pButton type="button" label="Neon" class="p-button-outlined p-button-secondary" routerLink="/user/register" > -->
+        <span  style="cursor: pointer;" routerLink="/">Neon</span>
+
+      <!-- </button> -->
+      <!-- <span routerLink="/">Neon</span> -->
       &nbsp;&nbsp;
 
       
@@ -15,15 +21,23 @@
       <button mat-button>Product</button>
       <button mat-button>Contacts</button> -->
       
-      <div *ngIf="isMerchant">
-        <span routerLink="merchant/view-service">Services</span>
+      <!-- <div *ngIf="isMerchant">
+        <span style="cursor: pointer;" routerLink="merchant/view-service">Services</span>
       </div>
       &nbsp;&nbsp;
 
       <div *ngIf="isMerchant">
-        <span routerLink="merchant/view-calender">Calender</span>
-      </div>
+        <span style="cursor: pointer;" routerLink="merchant/view-calender">Calender</span>
+      </div> -->
       <span class="example-spacer"></span>
+      <div *ngIf="isMerchant">
+        <span style="cursor: pointer;" routerLink="merchant/view-service">Services</span>
+      </div>
+      &nbsp;&nbsp;
+
+      <div *ngIf="isMerchant">
+        <span style="cursor: pointer;" routerLink="merchant/view-calender">Calender</span>
+      </div>
         <!-- <mat-icon mat-button [matMenuTriggerFor]="menu">menu</mat-icon>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/expenses">View Expense</button>
@@ -44,25 +58,25 @@
   <button mat-menu-item>Item 2</button>
   <button mat-menu-item>Item 1</button> -->
 
-        <div  *ngIf="!isLoggedIn" routerLink="/user/login">User Login</div>
+        <div style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/user/login">User Login</div>
       &nbsp;&nbsp;
-        <div *ngIf="!isLoggedIn" routerLink="/user/register">User Register</div>
+        <div style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/user/register">User Register</div>
       &nbsp;&nbsp;
-      <div  *ngIf="!isLoggedIn" routerLink="/merchant/login">Business Login</div>
+      <div  style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/merchant/login">Business Login</div>
       &nbsp;&nbsp;
-        <div *ngIf="!isLoggedIn" routerLink="/merchant/register">Business Register</div>
+        <div style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/merchant/register">Business Register</div>
       &nbsp;&nbsp;
-        <div *ngIf="isLoggedIn && !isMerchant" routerLink="/user/profile">Profile</div>
+        <div style="cursor: pointer;" *ngIf="isLoggedIn && !isMerchant" routerLink="/user/profile">Profile</div>
       &nbsp;&nbsp;
-        <div  *ngIf="isLoggedIn && !isMerchant" routerLink="/user/bookings">Bookings</div>
+        <div style="cursor: pointer;" *ngIf="isLoggedIn && !isMerchant" routerLink="/user/bookings">Bookings</div>
         <!-- <span class="material-icons" >
           person
           </span> -->
-        <div *ngIf="isMerchant" routerLink="/merchant/profile">Profile</div>
+        <div style="cursor: pointer;"*ngIf="isMerchant" routerLink="/merchant/profile">Profile</div>
       <br>
-        <div *ngIf="isMerchant" routerLink="/merchant/bookings">Bookings</div>
+        <div style="cursor: pointer;"*ngIf="isMerchant" routerLink="/merchant/bookings">Bookings</div>
         <br>
-        <div *ngIf="isMerchant" routerLink="/merchant/add-availability">Availability</div>
+        <div style="cursor: pointer;"*ngIf="isMerchant" routerLink="/merchant/add-availability">Availability</div>
 
 </mat-menu>
     </mat-toolbar-row>

@@ -217,6 +217,7 @@ export class MerchantAvailabilityComponent implements OnInit {
       time: element
       
     };
+    // console.log(selectedDate)
     console.log(selectedDate)
     
     this.merchantService.deleteAvailability(this.currentMerchant.id,selectedDate.date,selectedDate.time).subscribe(response=>{

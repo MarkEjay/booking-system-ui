@@ -55,11 +55,11 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
         <td mat-cell *matCellDef="let element"> {{element}} </td>
       </ng-container>
-      <ng-container matColumnDef="delete">
+      <ng-container  matColumnDef="delete">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Sunday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Sunday')">
             clear
           </span>
         </td>
@@ -78,7 +78,7 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Monday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Monday')">
             clear
           </span>
         </td>
@@ -96,7 +96,7 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Tuesday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Tuesday')">
             clear
           </span>
         </td>
@@ -114,7 +114,7 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Wednesday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Wednesday')">
             clear
           </span>
         </td>
@@ -132,7 +132,7 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Thursday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Thursday')">
             clear
           </span>
         </td>
@@ -150,7 +150,7 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Friday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Friday')">
             clear
           </span>
         </td>
@@ -169,7 +169,7 @@
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
         <td mat-cell *matCellDef="let element">
 
-          <span id="clear" class="material-icons" (click)="deleteAvailability(element,'Saturday')">
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Saturday')">
             clear
           </span>
         </td>

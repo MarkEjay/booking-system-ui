@@ -26,6 +26,7 @@ export class UserRequestComponent implements OnInit {
   timeSlots: string[] = [];
   //userid:any;
   merchantid = new FormControl('');
+  companyname=new FormControl('')
   created = new FormControl('');
   appointment = new FormControl('');
   phoneno = new FormControl('')
@@ -247,6 +248,7 @@ export class UserRequestComponent implements OnInit {
       lastname: this.loggedUser.lastname,
       phoneno: this.loggedUser.phone,
       merchantid: this.bookService.merchantid,
+      companyname:this.bookService.companyname,
       created: this.currentDate,
       // appointment: this.appointment.value,
       appointment: this.localISODate,
@@ -319,6 +321,7 @@ export class UserRequestComponent implements OnInit {
         phoneno: this.phoneno.value,
   
         merchantid: this.bookService.merchantid,
+        companyname:this.bookService.companyname,
         created: this.currentDate,
         // appointment:`${this.date.value}T${this.time.value}:00.000`,
         appointment: this.localISODate,
@@ -326,6 +329,7 @@ export class UserRequestComponent implements OnInit {
         status: "pending"
       }
   
+      console.log(rqst)
       
       this.userService.addRequest(rqst).subscribe(Response => {
         window.location.reload()

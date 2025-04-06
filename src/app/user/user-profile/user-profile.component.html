@@ -35,9 +35,9 @@
       <div>{{fname}} {{lname}}</div>
       <div>{{email}}</div>
       <br>
-      <h2 routerLink="settings"> <i class="pi pi-user" style="font-size: 1.5rem"></i> Account Settings</h2>
+      <h2 style="cursor: pointer;" routerLink="settings"> <i class="pi pi-user" style="font-size: 1.5rem"></i> Account Settings</h2>
       <ng-template pTemplate="footer">
-        <h2 (click)="logout()"> <i class="pi pi-sign-out" style="font-size: 1.3rem"></i> Log out</h2>
+        <h2 style="cursor: pointer;"  (click)="logout()"> <i class="pi pi-sign-out" style="font-size: 1.3rem"></i> Log out</h2>
       <!-- <button mat-fab extended color="primary" (click)="logout()">
           Log out
         </button> -->

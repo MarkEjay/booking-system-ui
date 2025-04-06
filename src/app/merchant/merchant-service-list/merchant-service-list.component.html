@@ -4,6 +4,7 @@
       <br />
       <table mat-table [dataSource]="service" matSort class="mat-elevation-z8">
 
+        
 
 
 
@@ -34,7 +35,7 @@
           <th mat-header-cell mat-sort-header *matHeaderCellDef> Edit </th>
           <td mat-cell *matCellDef="let element">
 
-            <span id="clear" class="material-icons" (click)="openEdit(element._id)">
+            <span style="cursor: pointer;"id="clear" class="material-icons" (click)="openEdit(element._id)">
               edit
             </span>
           </td>
@@ -44,7 +45,7 @@
           <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
           <td mat-cell *matCellDef="let element">
 
-            <span id="clear" class="material-icons" (click)="deleteService(element._id)">
+            <span style="cursor: pointer;"id="clear" class="material-icons" (click)="deleteService(element._id)">
               clear
             </span>
           </td>
@@ -93,9 +94,10 @@
     </p-table>
 </div> -->
 
-      <span id="add-icons" class="material-icons" (click)="openDialog()">
+      <span style="cursor: pointer;" id="add-icons" class="material-icons" (click)="openDialog()">
         add_circle
       </span>
+      
     </mat-tab>
   </mat-tab-group>
 </div>
