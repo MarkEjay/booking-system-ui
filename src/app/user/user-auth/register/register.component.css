@@ -1,0 +1,333 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  padding: 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+:host ::ng-deep .p-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(107, 70, 193, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.card-header {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.header-subtitle {
+  color: var(--text-light);
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.register-form {
+  padding: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+:host ::ng-deep .mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+:host ::ng-deep .mat-form-field-outline {
+  border-radius: 8px;
+}
+
+.field-icon {
+  color: var(--text-muted);
+  margin-right: 4px;
+  font-size: 18px;
+}
+
+.button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.button:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.4);
+}
+
+.button:disabled {
+  background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);
+  cursor: not-allowed;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.alerts-container {
+  margin: 0.5rem 0;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  gap: 8px;
+}
+
+.alert-danger {
+  background-color: #fff5f5;
+  color: #c53030;
+  border: 1px solid #feb2b2;
+}
+
+.alert-success {
+  background-color: #f0fff4;
+  color: #2f855a;
+  border: 1px solid #9ae6b4;
+}
+
+.alert-icon {
+  font-size: 18px;
+}
+
+.auth-links {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.auth-links p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-links a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+  color: var(--primary-dark);
+}
+
+:host ::ng-deep .p-card-content {
+  padding: 0.5rem;
+}
+
+:host ::ng-deep .p-card-footer {
+  padding: 1rem;
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 480px) {
+  .register-container {
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .card {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  :host ::ng-deep .p-card {
+    border-radius: 8px;
+    margin: 0;
+  }
+
+  .card-header {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .header-title {
+    font-size: 1.35rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+  }
+
+  .register-form {
+    padding: 0.25rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  :host ::ng-deep .mat-form-field {
+    margin-bottom: 0.5rem;
+  }
+
+  :host ::ng-deep .mat-form-field-wrapper {
+    margin-bottom: 0;
+  }
+
+  :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .button {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+  }
+
+  .alert {
+    padding: 0.625rem;
+    font-size: 0.9rem;
+  }
+
+  .alert-icon {
+    font-size: 16px;
+  }
+
+  .auth-links {
+    margin: 0.75rem 0;
+  }
+
+  .auth-links p {
+    font-size: 0.85rem;
+  }
+
+  :host ::ng-deep .p-card-content {
+    padding: 0.25rem;
+  }
+
+  :host ::ng-deep .p-card-footer {
+    padding: 0.75rem;
+  }
+
+  /* Enhanced touch targets for mobile */
+  .button, 
+  .auth-links a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improved form field spacing on mobile */
+  :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.75em 0;
+  }
+
+  /* Better input text size for mobile */
+  :host ::ng-deep .mat-input-element {
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+
+  /* Improved icon sizing for mobile */
+  .field-icon {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+
+  /* Better button content alignment */
+  .button-content {
+    gap: 6px;
+  }
+
+  .button-content mat-icon {
+    font-size: 18px;
+  }
+}
+
+/* Additional mobile optimizations for smaller screens */
+@media (max-width: 360px) {
+  .header-title {
+    font-size: 1.25rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Prevent zoom on iOS devices */
+@media screen and (-webkit-min-device-pixel-ratio: 0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}
+
+.footer-content {
+  padding: 0.75rem;
+}
+
+.login-type-links {
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
+
+}
+
+.switch-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 0.6rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background: rgba(107, 70, 193, 0.05);
+  font-size: 0.9rem;
+}
+
+.switch-login:hover {
+  background: rgba(107, 70, 193, 0.1);
+  color: var(--primary);
+}

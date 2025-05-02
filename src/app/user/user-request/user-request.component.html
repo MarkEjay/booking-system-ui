@@ -1,0 +1,116 @@
+
+<mat-dialog-content >
+  <mat-card class="card">
+  <form class="example-form">
+    <div *ngIf="!currentUser">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input [formControl]="phoneno" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input required [formControl]="guestemail" matInput >
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input required [formControl]="guestfname" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input [formControl]="guestlname" matInput>
+      </mat-form-field>
+    </div>
+    </form>
+    <!-- <
+    <br> -->
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input  [formControl]="appointment" matInput>
+    </mat-form-field>
+    <br> -->
+    <!-- <mat-form-field  appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea  [formControl]="description" matInput></textarea>
+  
+    </mat-form-field>
+    <br> -->
+    <h1>{{details}}</h1>
+    <!-- <h3>Select a date to confirm your spot</h3> -->
+    
+    <!-- <p-calendar class="max-w-full" [formControl]="appointment" hourFormat="12" [appendTo]="00" [showTime]="true"
+      [touchUI]="true" [readonlyInput]="true"></p-calendar> -->
+
+
+      <!-- new calander -->
+      <div class="scheduler-container">
+        <div class="header">
+          <h2>Select a Date & Time</h2>
+        </div>
+      
+        
+        <div class="calendar-container">
+            <p-calendar [(ngModel)]="selectedDate" (onSelect)="onDateChange($event)" [inline]="true"></p-calendar>
+            
+        </div>
+    
+      
+        <div class="time-slot-container">
+          <h3>Available Time Slots</h3>
+          <div *ngFor="let slot of timeSlots" class="time-slot" (click)="selectTimeSlot(slot)" [class.selected]="slot === selectedTimeSlot">
+            {{ slot }}
+          </div>
+        </div>
+      
+        <!-- <div class="footer">
+        
+          <button mat-raised-button color="primary" (click)="confirmSelection()">Confirm</button>
+        </div> -->
+      </div>
+
+      <!-- end new calander -->
+
+      
+
+
+    <div *ngIf="currentUser">
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequest()">
+        {{actionBtn}}
+      </button>
+    </div>
+    <div *ngIf="!currentUser">
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="sendRequestAsGuest()">
+        {{actionBtn}}
+      </button>
+    </div>
+    <button mat-button mat-dialog-close>CANCEL</button>
+
+
+
+    <!-- <div class="pickers-wrapper">
+    <div class="form-group">
+        <div class="form-date-picker">
+            <igx-date-picker #datePicker name="date-picker" [(ngModel)]="date">
+                <label igxLabel>Date</label>
+            </igx-date-picker>
+        </div>
+        <div class="form-time-picker">
+            <igx-time-picker name="time-picker" [(ngModel)]="date" [disabled]="datePicker.value ? false : true">
+                <label igxLabel>Time</label>
+            </igx-time-picker>
+        </div>
+    </div>
+    <p class="text">
+        Selected date: {{ date? date.toLocaleString() : null }}
+    </p>
+</div> -->
+
+  <!-- </form> -->
+  <!-- <mat-card-actions align="end">
+     
+    </mat-card-actions> -->
+</mat-card>
+</mat-dialog-content>

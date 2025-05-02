@@ -1,0 +1,146 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    padding: 20px;
+}
+
+/* Card Styles */
+:host ::ng-deep .p-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 20px; /* Added padding for better spacing */
+}
+
+:host ::ng-deep .p-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Title */
+.card-title {
+    font-size: 1.75rem; /* Increased font size for prominence */
+    font-weight: 700; /* Bolder font weight */
+    color: #2d3748; /* Darker color for better contrast */
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0; /* Softer border color */
+}
+
+/* Form Styles */
+.example-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap for better spacing */
+}
+
+/* Material Form Field Styles */
+:host ::ng-deep .mat-form-field {
+    width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #cbd5e0; /* Softer outline color */
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #6B46C1; /* Primary color on focus */
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.5em 0;
+}
+
+/* Update Message Styles */
+.update-message {
+    text-align: center;
+    padding: 12px; /* Increased padding for better visibility */
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin: 16px 0;
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.update-message.success {
+    background-color: #f0fff4; /* Light green background */
+    color: #2f855a; /* Dark green text */
+    border: 1px solid #c6f6d5; /* Soft border */
+}
+
+.update-message.error {
+    background-color: #fff5f5; /* Light red background */
+    color: #c53030; /* Dark red text */
+    border: 1px solid #fed7d7; /* Soft border */
+}
+
+/* Save Button Styles */
+.save-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6B46C1; /* Primary color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600; /* Bolder font weight */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.save-button:hover {
+    background-color: #553C9A; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 480px) {
+    :host ::ng-deep .p-card {
+        width: 100% !important;
+        margin: 0 16px;
+    }
+
+    .card-title {
+        font-size: 1.5rem; /* Adjusted for smaller screens */
+    }
+
+    .save-button {
+        padding: 10px;
+    }
+}
+
+/* Icon Styles */
+:host ::ng-deep .mat-icon {
+    color: #6B46C1; /* Primary color for icons */
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6B46C1;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+  
+  .back-button:hover {
+    background-color: #f3f4f6;
+    transform: translateX(-5px);
+  }
+  
+  .back-button i {
+    font-size: 0.9rem;
+  }

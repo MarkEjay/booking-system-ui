@@ -1,0 +1,91 @@
+<!-- 
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      
+ 
+        <span  style="cursor: pointer;" routerLink="/">Neon</span>
+
+      &nbsp;&nbsp;
+
+      
+    
+      <span class="example-spacer"></span>
+      <div *ngIf="isMerchant">
+        <span style="cursor: pointer;" routerLink="merchant/view-service">Services</span>
+      </div>
+      &nbsp;&nbsp;
+
+      <div *ngIf="isMerchant">
+        <span style="cursor: pointer;" routerLink="merchant/view-calender">Calender</span>
+      </div>
+       
+     
+      <button mat-button [matMenuTriggerFor]="menu">
+     
+          <span  id="add-icons" class="material-icons"  >
+            menu
+            </span>
+      </button>
+<mat-menu #menu="matMenu">
+
+
+        <div style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/user/login">User Login</div>
+      &nbsp;&nbsp;
+        <div style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/user/register">User Register</div>
+      &nbsp;&nbsp;
+      <div  style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/merchant/login">Business Login</div>
+      &nbsp;&nbsp;
+        <div style="cursor: pointer;" *ngIf="!isLoggedIn" routerLink="/merchant/register">Business Register</div>
+      &nbsp;&nbsp;
+        <div style="cursor: pointer;" *ngIf="isLoggedIn && !isMerchant" routerLink="/user/profile">Profile</div>
+      &nbsp;&nbsp;
+        <div style="cursor: pointer;" *ngIf="isLoggedIn && !isMerchant" routerLink="/user/bookings">Bookings</div>
+       
+        <div style="cursor: pointer;"*ngIf="isMerchant" routerLink="/merchant/profile">Profile</div>
+      <br>
+        <div style="cursor: pointer;"*ngIf="isMerchant" routerLink="/merchant/bookings">Bookings</div>
+        <br>
+        <div style="cursor: pointer;"*ngIf="isMerchant" routerLink="/merchant/add-availability">Availability</div>
+
+</mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+   -->
+
+
+
+   <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">NEON</a>
+        <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" [class.active]="isMobileMenuOpen">
+          <!-- <li *ngIf="!isLoggedIn"><a href="#features" (click)="isMobileMenuOpen = false">Features</a></li>
+          <li *ngIf="!isLoggedIn"><a href="#pricing" (click)="isMobileMenuOpen = false">Pricing</a></li>
+          <li *ngIf="!isLoggedIn"><a href="#contact" (click)="isMobileMenuOpen = false">Contact</a></li> -->
+          <li><a href="user/merchant-lookup" *ngIf="isLoggedIn && !isMerchant">Find business</a></li>
+          <li><a href="user/bookings" *ngIf="isLoggedIn && !isMerchant">Bookings</a></li>
+          <li><a href="user/login"  *ngIf="!isLoggedIn" class="btn btn-outline">Login</a></li>
+          <li><a href="/user/register"  *ngIf="!isLoggedIn" class="btn btn-primary">Sign Up</a></li>
+          <li *ngIf="isLoggedIn && !isMerchant" ><a href="user/profile" class="btn btn-outline" >Profile</a></li>         
+          <li><a href="merchant/bookings" *ngIf="isMerchant">Bookings</a></li>
+          <li><a href="merchant/add-availability" *ngIf="isMerchant">Add Availability</a></li>
+          <li><a href="merchant/view-calender" *ngIf="isMerchant">Calender</a></li>
+          <li><a href="merchant/view-service" *ngIf="isMerchant">Services</a></li>
+          <li *ngIf="isLoggedIn && isMerchant" ><a href="merchant/profile" class="btn btn-outline" >Profile</a></li>
+
+          <!-- <li *ngIf="isLoggedIn && !isMerchant" ><a href="user/bookings"class="btn btn-outline" >Bookings</a></li> -->
+
+
+          
+        <!-- <li *ngIf="isLoggedIn"><a href="/profile">Profile</a></li>
+        <li *ngIf="isLoggedIn"><a href="/logout" class="btn btn-outline">Logout</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </header>

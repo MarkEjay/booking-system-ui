@@ -1,0 +1,150 @@
+<div>
+  <mat-tab-group>
+    <mat-tab label="service">
+      <br />
+      <table mat-table [dataSource]="service" matSort class="mat-elevation-z8">
+
+        
+
+
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="merchantid">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Merchant Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.merchantid}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.currency + element.price}}</td>
+        </ng-container>
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Duration </th>
+          <td mat-cell *matCellDef="let element"> {{element.duration}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let element">
+
+            <span style="cursor: pointer;"id="clear" class="material-icons" (click)="openEdit(element._id)">
+              edit
+            </span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element">
+
+            <span style="cursor: pointer;"id="clear" class="material-icons" (click)="deleteService(element._id)">
+              clear
+            </span>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+        <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+      </table>
+
+      <!-- 
+  <div class="card">
+    <p-table
+        [value]="service"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 25, 50]"
+    >
+        <ng-template pTemplate="header">
+           
+            <tr>
+              <th pSortableColumn="title" style="width:20%">Title <p-sortIcon field="title"></p-sortIcon></th>
+              <th pSortableColumn="merchantid" style="width:20%">Merchantid <p-sortIcon field="merchantid"></p-sortIcon></th>
+              <th pSortableColumn="description" style="width:20%">Description <p-sortIcon field="description"></p-sortIcon></th>
+              <th pSortableColumn="price" style="width:20%">Price <p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="duration" style="width:20%">Duration <p-sortIcon field="duration"></p-sortIcon></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-service>
+            <tr>
+                <td>{{ service.title }}</td>
+                <td>{{ service.merchantid }}</td>
+                
+                <td>{{ service.description }}</td>
+                <td>{{ service.price }}</td>
+                <td>{{ service.duration }}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+       
+    </p-table>
+</div> -->
+
+      <span style="cursor: pointer;" id="add-icons" class="material-icons" (click)="openDialog()">
+        add_circle
+      </span>
+      
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<!-- <ng-container  matColumnDef="action">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+          <span  id="clear" class="material-icons" (click)="deleteExpense(element._id)">
+            clear
+            </span>
+            <p></p>
+            <span  id="edit" class="material-icons" (click)="editExpense(element)" >
+              edit
+              </span>
+      </td>
+    </ng-container> -->
+
+<!-- <tr mat-row *matRowDef="let element; ">
+      <span  class="material-icons"  >
+        clear
+        </span>
+    </tr> -->
+
+<!-- 
+      <p-dataView #dv [value]="products">
+    <ng-template let-product pTemplate="listItem">
+        <div class="col-12">
+            <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+                <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name" />
+                <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                    <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                        <div class="text-2xl font-bold text-900">{{ product.name }}</div>
+                        <p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"></p-rating>
+                        <div class="flex align-items-center gap-3">
+                            <span class="flex align-items-center gap-2">
+                                <i class="pi pi-tag"></i>
+                                <span class="font-semibold">{{ product.category }}</span>
+                            </span>
+                            <p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product)"></p-tag>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                        <span class="text-2xl font-semibold">{{'$'+ product.price }}</span>
+                        <button pButton icon="pi pi-shopping-cart" class="md:align-self-end mb-2 p-button-rounded" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataView>
+     -->

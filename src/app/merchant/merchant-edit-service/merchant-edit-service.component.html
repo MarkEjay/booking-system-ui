@@ -1,0 +1,43 @@
+<mat-card class="card">
+    <form class="example-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input [formControl]="title" matInput>
+        </mat-form-field>
+        <br>
+  <mat-form-field  appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea  [formControl]="description" matInput></textarea>
+  
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field  appearance="outline">
+        <mat-label>Price</mat-label>
+        <input  [formControl]="price" matInput>
+        
+      </mat-form-field>
+      
+  <br>
+  <mat-form-field  appearance="outline">
+    <mat-label>Duration</mat-label>
+    <input  [formControl]="duration" matInput>
+    e.g 30mins, 1hr, 1hr30mins
+  </mat-form-field>
+  <br>
+  <div class="card flex justify-content-center">
+    <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="previewSource"  />
+
+    <!-- <p-fileUpload chooseLabel="Upload Image" (onUpload)="handleFileInputChange($event)"></p-fileUpload> -->
+    <input type="file" name="profile" (change)="handleFileInputChange($event)">
+  
+    </div>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="editService(this.serviceId)">
+      {{actionBtn}}
+    </button>
+    <button mat-button mat-dialog-close>CANCEL</button>
+    
+  </mat-card-actions>
+    </form>
+</mat-card>

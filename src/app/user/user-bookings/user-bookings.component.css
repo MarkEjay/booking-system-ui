@@ -1,0 +1,292 @@
+/* Container Styles */
+.table-container {
+  padding: 100px 40px 40px;
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+}
+
+/* Tab Group Styles */
+:host ::ng-deep .mat-tab-group {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Tab Header Styles */
+:host ::ng-deep .mat-tab-header {
+  border-bottom: none;
+  background: white;
+  padding: 16px 16px 0;
+}
+
+:host ::ng-deep .mat-tab-label {
+  height: 48px;
+  padding: 0 24px;
+  opacity: 1;
+  color: #64748b;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+:host ::ng-deep .mat-tab-label-active {
+  color: #6B46C1;
+  font-weight: 600;
+  background-color: #f8f7ff;
+}
+
+:host ::ng-deep .mat-ink-bar {
+  background-color: #6B46C1 !important;
+  height: 4px;
+  border-radius: 4px;
+}
+
+/* Search Field Styles */
+.search-field {
+  width: calc(100% - 48px);
+  margin: 24px;
+}
+
+:host ::ng-deep .search-field .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+:host ::ng-deep .search-field .mat-form-field-outline {
+  background: white;
+  border-radius: 12px;
+}
+
+:host ::ng-deep .search-field .mat-form-field-flex {
+  align-items: center;
+  min-height: 56px;
+  padding: 0 16px !important;
+}
+
+:host ::ng-deep .search-field .mat-form-field-infix {
+  padding: 8px 0;
+}
+
+:host ::ng-deep .search-field .mat-icon {
+  color: #6B46C1;
+}
+
+/* Table Styles */
+.mat-elevation-z8 {
+  margin: 0 24px 24px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: none !important;
+  overflow: hidden;
+  background: white;
+}
+
+/* Table Header */
+.mat-header-cell {
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 20px !important;
+  border-bottom: 2px solid #e2e8f0;
+  letter-spacing: 0.3px;
+}
+
+/* Table Cells */
+.mat-cell {
+  color: #334155;
+  font-size: 0.95rem;
+  padding: 20px !important;
+  border-bottom: 1px solid #f1f5f9;
+  line-height: 1.5;
+}
+
+/* Table Rows */
+.mat-row {
+  transition: all 0.3s ease;
+}
+
+.mat-row:hover {
+  background-color: #f8f7ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Status Cell Styling */
+td.mat-cell[data-status] {
+  font-weight: 500;
+  position: relative;
+}
+
+td.mat-cell[data-status="pending"] {
+  color: #eab308;
+}
+
+td.mat-cell[data-status="approved"] {
+  color: #10b981;
+}
+
+td.mat-cell[data-status]::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+td.mat-cell[data-status="pending"]::before {
+  background-color: #eab308;
+}
+
+td.mat-cell[data-status="approved"]::before {
+  background-color: #10b981;
+}
+
+/* Date Formatting */
+.mat-column-created,
+.mat-column-appointment {
+  white-space: nowrap;
+  color: #64748b;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+}
+
+/* Description Column */
+.mat-column-description {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #475569;
+}
+
+/* Empty State */
+.no-data-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  color: #94a3b8;
+}
+
+.no-data-row mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+  border: 3px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .table-container {
+    padding: 80px 20px 20px;
+  }
+
+  .mat-column-description {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .table-container {
+    padding: 80px 12px 12px;
+  }
+
+  .mat-elevation-z8 {
+    margin: 0 12px 12px;
+  }
+
+  .search-field {
+    width: calc(100% - 24px);
+    margin: 12px;
+  }
+
+  .mat-header-cell,
+  .mat-cell {
+    padding: 16px !important;
+    font-size: 0.9rem;
+  }
+
+  .mat-column-description {
+    max-width: 150px;
+  }
+}
+
+/* Animation for Row Hover */
+@keyframes rowHover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Add these classes to your HTML */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-badge.pending {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.status-badge.approved {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+/* Optional: Add subtle animations */
+.mat-row {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

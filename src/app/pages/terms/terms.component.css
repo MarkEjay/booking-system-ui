@@ -1,0 +1,78 @@
+.tos-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(107,70,193,0.07);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .tos-container h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #6B46C1;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .last-updated {
+    text-align: center;
+    color: #805AD5;
+    margin-bottom: 32px;
+    font-size: 1rem;
+  }
+  
+  .tos-container section {
+    margin-bottom: 36px;
+  }
+  
+  .tos-container h2 {
+    font-size: 1.35rem;
+    color: #553C9A;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  
+  .tos-container ul {
+    margin: 0 0 12px 24px;
+    padding: 0;
+    list-style: disc;
+  }
+  
+  .tos-container li {
+    margin-bottom: 8px;
+    color: #4A5568;
+    font-size: 1.05rem;
+  }
+  
+  .tos-container p {
+    color: #2D3748;
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  
+  .tos-container a {
+    color: #6B46C1;
+    text-decoration: underline;
+    word-break: break-all;
+  }
+  
+  .tos-container mat-icon {
+    vertical-align: middle;
+    color: #6B46C1;
+    margin-right: 4px;
+  }
+  
+  @media (max-width: 600px) {
+    .tos-container {
+      padding: 16px 4px;
+    }
+    .tos-container h1 {
+      font-size: 2rem;
+    }
+    .tos-container h2 {
+      font-size: 1.1rem;
+    }
+  }

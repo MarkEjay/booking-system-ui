@@ -1,0 +1,92 @@
+<div class="search-page">
+    <div class="search-container">
+      <!-- Search Header -->
+      <div class="search-header">
+        <h1>Find a Business</h1>
+        <p>Search for businesses by merchant ID or name</p>
+      </div>
+  
+      <!-- Search Input -->
+      <!-- <div class="search-box">
+        <mat-form-field appearance="outline">
+          <mat-label>Search businesses</mat-label>
+          <input matInput [formControl]="searchControl" placeholder="Enter merchant ID or business name">
+          <mat-icon matPrefix>search</mat-icon>
+          <mat-spinner matSuffix diameter="20" *ngIf="isLoading"></mat-spinner>
+        </mat-form-field>
+      </div> -->
+      <div class="search-box">
+        <mat-form-field appearance="outline">
+          <mat-label>Search by Merchant ID</mat-label>
+          <input matInput 
+                 [formControl]="searchControl" 
+                 placeholder="Enter merchant ID">
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+        
+        <div class="search-actions">
+          <button mat-raised-button 
+                  color="primary" 
+                  (click)="searchMerchants(searchControl.value!)">
+            <mat-icon>search</mat-icon>
+            Search
+          </button>
+        </div>
+      </div>
+      
+     
+  
+      <!-- Results Section -->
+      <div class="search-results" *ngIf="searchPerformed">
+        <!-- Loading State -->
+        <div class="loading-state" *ngIf="isLoading">
+          <mat-spinner diameter="40"></mat-spinner>
+          <p>Searching for businesses...</p>
+        </div>
+  
+        <!-- No Results State -->
+        <div class="no-results" *ngIf="noResults && !isLoading">
+          <mat-icon>search_off</mat-icon>
+          <h3>No businesses found</h3>
+          <p>Try searching with a different merchant ID or business name</p>
+        </div>
+  
+        <!-- Results List -->
+        <div class="results-grid" *ngIf="merchants.length > 0 && !isLoading">
+          <mat-card class="merchant-card" *ngFor="let merchant of merchants">
+            <mat-card-header>
+              <div mat-card-avatar class="merchant-avatar">
+                <mat-icon>store</mat-icon>
+              </div>
+              <mat-card-title>{{merchant.companyname}}</mat-card-title>
+              <!-- <mat-card-subtitle>ID: {{merchant.merchantId}}</mat-card-subtitle> -->
+            </mat-card-header>
+  
+            <mat-card-content>
+              <div class="merchant-details">
+                <!-- <p><mat-icon>location_on</mat-icon> {{merchant.location}}</p> -->
+                <p><mat-icon>phone</mat-icon> {{merchant.phone}}</p>
+                <p><mat-icon>mail</mat-icon> {{merchant.email}}</p>
+              </div>
+            </mat-card-content>
+  
+            <mat-card-actions align="end">
+              <!-- <button mat-button color="primary" (click)="viewMerchantDetails(merchant.merchantId)">
+                <mat-icon>visibility</mat-icon>
+                View Details
+              </button> -->
+              
+              <mat-card-actions align="end">
+                <button mat-raised-button 
+                        color="primary"
+                        [routerLink]="['/merchant', merchant.merchantid]">
+                  <mat-icon>store</mat-icon>
+                  View Services
+                </button>
+              </mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>

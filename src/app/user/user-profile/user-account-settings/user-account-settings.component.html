@@ -1,0 +1,89 @@
+<!-- 
+
+  
+<div class="card flex justify-content-center">
+  <p-card header="Account Settings" [style]="{ width: '360px' }">
+    <form class="example-form">
+    
+        <td><mat-form-field >
+          <mat-label>First name</mat-label>
+          <input matInput ="true" disabled value={{fname}}> 
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+          <mat-label>Last Name</mat-label>
+          <input matInput  disabled value={{lname}}>
+        </mat-form-field>
+        <br>
+      <mat-form-field >
+          <mat-label>Email</mat-label>
+          <input matInput  [formControl]="email" >
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+          <mat-label>Phone</mat-label>
+          <input matInput  [formControl]="phone" >
+        </mat-form-field>
+   
+    </form>
+    <div>
+      {{updateMsg}}
+    </div>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="updateUser()">
+      Save
+    </button>
+   
+  
+  </p-card>
+</div> -->
+
+<div class="main">
+  <div class="card flex justify-content-center">
+    <p-card [style]="{ width: '400px' }">
+      <!-- Back Button -->
+      <div class="back-button" (click)="goBack()">
+        <i class="pi pi-arrow-left"></i>
+        <span>Back to Profile</span>
+      </div>
+      
+      <h2 class="card-title">Account Settings</h2>
+      
+      <form class="settings-form">
+        <div class="form-group">
+          <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input matInput disabled [value]="fname">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput disabled [value]="lname">
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [formControl]="email">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput [formControl]="phone">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="update-message" [class.success]="updateMsg.includes('success')" [class.error]="updateMsg.includes('error')">
+          {{updateMsg}}
+        </div>
+
+        <button mat-raised-button class="save-button" (click)="updateUser()">
+          <i class="pi pi-check"></i>
+          Save Changes
+        </button>
+      </form>
+    </p-card>
+  </div>
+</div>

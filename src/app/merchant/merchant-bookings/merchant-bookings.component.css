@@ -1,0 +1,6 @@
+.table-container {
+    padding: 100px 10px 10px;
+    min-height: calc(100vh - 64px);
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+  }
+  

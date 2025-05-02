@@ -1,0 +1,69 @@
+<mat-card class="card">
+    <form class="example-form">
+    <mat-form-field  appearance="outline">
+      <mat-label>Title</mat-label>
+      <input  [formControl]="title" matInput>
+    </mat-form-field>
+    <br>
+  <mat-form-field  appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea  [formControl]="description" matInput></textarea>
+  
+    </mat-form-field>
+    <br>
+    <!-- <div>
+      <label for="currency">Choose a currency: </label>
+      <select id="currency" [(ngModel)]="selectedCurrency" (change)="onCurrencyChange()">
+        <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+      </select>
+      <p>Price: {{ price | currency: selectedCurrency }}</p>
+    </div> -->
+    <mat-form-field  appearance="outline">
+      <mat-label>Select</mat-label>
+      <mat-select [formControl]="currency">
+        <mat-option value="CA$">CA$</mat-option>
+        <mat-option value="US$">US$</mat-option>
+        <mat-option value="£">£</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline">
+        <mat-label>Price</mat-label>
+        <input  [formControl]="price" matInput>
+        
+      </mat-form-field>
+      
+  <br>
+  <mat-form-field  appearance="outline">
+    <mat-label>Duration</mat-label>
+    <input  [formControl]="duration" matInput>
+    e.g 30mins, 1hr, 1hr30mins
+  </mat-form-field>
+  <br>
+  <!-- <mat-form-field  appearance="outline">
+  <mat-label>Chose Profile Picture</mat-label>
+  <input type="file" name="profile" (change)="handleFileInputChange($event)">
+  <img src={{previewSource}} height="100px" width="100px"/>
+  </mat-form-field> -->
+  <div class="card flex justify-content-center">
+  <!-- <p-fileUpload chooseLabel="Upload Image" (onUpload)="handleFileInputChange($event)"></p-fileUpload> -->
+  <input type="file" name="profile" (change)="handleFileInputChange($event)">
+
+  </div>
+  <!-- <div class="example-button-container">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div> -->
+  
+<br>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="createService()">
+        {{actionBtn}}
+      </button>
+      <button mat-button mat-dialog-close>CANCEL</button>
+      
+    </mat-card-actions>
+    </form>
+  </mat-card>
+  

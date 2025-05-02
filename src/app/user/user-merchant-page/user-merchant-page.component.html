@@ -1,0 +1,93 @@
+<!-- <h1>{{merchantid}}</h1>
+<br>
+<h1>Services</h1>
+
+ 
+      <p-dataView #dv [value]="service">
+    <ng-template let-product pTemplate="listItem">
+        <div class="col-12">
+            <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+                <div *ngIf="product.profile">
+                <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="product.profile" [alt]="product.name" />
+                </div>
+
+                <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                    <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                        <div class="text-2xl font-bold text-900">{{ product.title }}</div>
+                        <div class="flex align-items-center gap-3">
+                            <span class="flex align-items-center gap-2">
+                                <span class="font-semibold">{{ product.category }}</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                        <span class="text-2xl font-semibold">{{product.currency + product.price }}</span>
+                        <button (click)="bookService(product)" mat-stroked-button>Book</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataView>
+    
+
+ -->
+
+ <div class="merchant-page">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>Loading services...</p>
+    </div>
+  
+    <!-- Error State -->
+    <div *ngIf="error" class="error-state">
+      <mat-icon>error_outline</mat-icon>
+      <h3>{{error}}</h3>
+      <button mat-raised-button color="primary" (click)="getService()">
+        Try Again
+      </button>
+    </div>
+  
+    <!-- Content -->
+    <div *ngIf="!isLoading && !error">
+      <h1>{{companyname || 'Business Services'}}</h1>
+      <br>
+      <h1>Services</h1>
+  
+      <p-dataView #dv [value]="service">
+        <ng-template let-product pTemplate="listItem">
+          <div class="col-12">
+            <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+              <div *ngIf="product.profile">
+                <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" 
+                     [src]="product.profile" 
+                     [alt]="product.title" />
+              </div>
+  
+              <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                  <div class="text-2xl font-bold text-900">{{ product.title }}</div>
+                  <div class="flex align-items-center gap-3">
+                    <span class="flex align-items-center gap-2">
+                      <span class="font-semibold">{{ product.category }}</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                  <span class="text-2xl font-semibold">{{product.currency + product.price }}</span>
+                  <button mat-raised-button 
+                          color="primary"
+                          (click)="bookService(product)">
+                    <mat-icon>event</mat-icon>
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+    </div>
+  </div>

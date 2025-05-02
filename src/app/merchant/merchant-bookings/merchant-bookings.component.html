@@ -1,0 +1,181 @@
+<mat-tab-group class="table-container">
+  <mat-tab label="Requests">
+    <br />
+    <!--
+            <ng-container *ngFor= "let datas of expense.expense">
+              <h3>{{datas.title}}</h3>
+            </ng-container> -->
+
+    <table mat-table [dataSource]="request" matSort class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <!-- <ng-container matColumnDef="userid">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> User Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
+              </ng-container> -->
+      <!-- <ng-container matColumnDef="created">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Created </th>
+        <td mat-cell *matCellDef="let element"> {{element.created | date:'medium' }} </td>
+      </ng-container> -->
+      <ng-container matColumnDef="appointment">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Appointment</th>
+        <td mat-cell *matCellDef="let element"> {{element.appointment | date:'medium'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> First Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname }} </td>
+      </ng-container>
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="status">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container> -->
+      <ng-container matColumnDef="phoneno">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Phone Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneno}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="approve">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Approve </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="edit" class="material-icons" (click)="approveRequest(element)">
+            done
+          </span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="decline">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Decline </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;"id="clear" class="material-icons" (click)="deleteRequest(element._id)">
+            clear
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- <tr mat-row *matRowDef="let element; ">
+                <span  class="material-icons"  >
+                  clear
+                  </span>
+              </tr> -->
+
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+    </table>
+
+
+
+  </mat-tab>
+  <mat-tab label="Approved Bookings">
+    <br />
+    <!--
+            <ng-container *ngFor= "let datas of expense.expense">
+              <h3>{{datas.title}}</h3>
+            </ng-container> -->
+
+    <table mat-table [dataSource]="booking" matSort class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <!-- <ng-container matColumnDef="userid">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> User Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.userid}} </td>
+              </ng-container> -->
+      <!-- <ng-container matColumnDef="created">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Created </th>
+        <td mat-cell *matCellDef="let element"> {{element.created | date:'medium' }} </td>
+      </ng-container> -->
+      <ng-container matColumnDef="appointment">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Appointment</th>
+        <td mat-cell *matCellDef="let element"> {{element.appointment | date:'medium'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> First Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Last Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="useremail">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Client Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.useremail}} </td>
+      </ng-container>
+      <ng-container matColumnDef="phoneno">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Phone Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneno}} </td>
+      </ng-container>
+
+
+      <!-- <ng-container matColumnDef="approve">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Approve </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span id="edit" class="material-icons" (click)="approveRequest(element)">
+            edit
+          </span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="decline">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Decline </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span id="clear" class="material-icons" (click)="deleteRequest(element._id)">
+            clear
+          </span>
+        </td>
+      </ng-container> -->
+
+      <!-- <tr mat-row *matRowDef="let element; ">
+                <span  class="material-icons"  >
+                  clear
+                  </span>
+              </tr> -->
+
+      <tr mat-header-row *matHeaderRowDef="tableBookings"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableBookings;"></tr>
+    </table>
+
+
+  </mat-tab>
+</mat-tab-group>
+
+<!-- (click)="openDialog()" -->

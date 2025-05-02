@@ -1,0 +1,161 @@
+<div class="table-container">
+  <mat-tab-group>
+    <!-- Requests Tab -->
+    <mat-tab label="Requests"> 
+      <div class="tab-content">
+        <!-- Search Field -->
+        <!-- <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search Requests</mat-label>
+          <input matInput (keyup)="applyRequestFilter($event)" placeholder="Search by title, description, or status...">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field> -->
+
+        <!-- Table -->
+        <div class="table-wrapper">
+          <table mat-table [dataSource]="request" matSort class="mat-elevation-z8">
+            <!-- Title Column -->
+            <ng-container matColumnDef="title">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Title</th>
+              <td mat-cell *matCellDef="let element">{{element.title}}</td>
+            </ng-container>
+
+            <!-- Merchant ID Column -->
+            <ng-container matColumnDef="merchantid">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Merchant ID</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="merchant-id">{{element.merchantid}}</span>
+              </td>
+            </ng-container>
+
+            <!-- Created Column -->
+            <ng-container matColumnDef="created">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Created</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="date-field">{{element.created | date:'medium'}}</span>
+              </td>
+            </ng-container>
+
+            <!-- Appointment Column -->
+            <ng-container matColumnDef="appointment">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Appointment</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="date-field">{{element.appointment | date:'medium'}}</span>
+              </td>
+            </ng-container>
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Description</th>
+              <td mat-cell *matCellDef="let element" class="description-cell" [matTooltip]="element.description">
+                {{element.description}}
+              </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="status-badge" [class]="element.status.toLowerCase()">
+                  <span class="status-dot"></span>
+                  {{element.status}}
+                </span>
+              </td>
+            </ng-container>
+
+            <!-- Header and Row Definitions -->
+            <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableheaders;"></tr>
+
+            <!-- No Data Row -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell no-data-row" [attr.colspan]="tableheaders.length">
+                <mat-icon>search_off</mat-icon>
+                <p>No requests found</p>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Loading Spinner -->
+          <!-- <div class="loading-spinner" *ngIf="isLoading">
+            <mat-spinner diameter="25"></mat-spinner>
+          </div> -->
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- Approved Bookings Tab -->
+    <mat-tab label="Approved Bookings">
+      <div class="tab-content">
+        <!-- Search Field -->
+        <!-- <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search Bookings</mat-label>
+          <input matInput (keyup)="applyBookingFilter($event)" placeholder="Search by title, description, or status...">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field> -->
+
+        <!-- Table -->
+        <div class="table-wrapper">
+          <table mat-table [dataSource]="booking" matSort class="mat-elevation-z8">
+            <!-- Title Column -->
+            <ng-container matColumnDef="title">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Title</th>
+              <td mat-cell *matCellDef="let element">{{element.title}}</td>
+            </ng-container>
+
+            <!-- Created Column -->
+            <ng-container matColumnDef="created">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Created</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="date-field">{{element.created | date:'medium'}}</span>
+              </td>
+            </ng-container>
+
+            <!-- Appointment Column -->
+            <ng-container matColumnDef="appointment">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Appointment</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="date-field">{{element.appointment | date:'medium'}}</span>
+              </td>
+            </ng-container>
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Description</th>
+              <td mat-cell *matCellDef="let element" class="description-cell" [matTooltip]="element.description">
+                {{element.description}}
+              </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">
+                <span class="status-badge" [class]="element.status.toLowerCase()">
+                  <span class="status-dot"></span>
+                  {{element.status}}
+                </span>
+              </td>
+            </ng-container>
+
+            <!-- Header and Row Definitions -->
+            <tr mat-header-row *matHeaderRowDef="tableBookings"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableBookings;"></tr>
+
+            <!-- No Data Row -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell no-data-row" [attr.colspan]="tableBookings.length">
+                <mat-icon>event_busy</mat-icon>
+                <p>No approved bookings found</p>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Loading Spinner -->
+          <!-- <div class="loading-spinner" *ngIf="isLoading">
+            <mat-spinner diameter="25"></mat-spinner>
+          </div> -->
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

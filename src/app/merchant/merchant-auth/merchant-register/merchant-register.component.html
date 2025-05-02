@@ -1,0 +1,76 @@
+
+<div class="card flex justify-content-center">
+  <p-card header="Merchant Registration" [style]="{ width: '360px' }">
+      <!-- place body -->
+
+      <form class="example-form">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input id="firstname" [formControl]="firstname"matInput placeholder="First Name">
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field appearance="outline">
+         <mat-label>Last Name</mat-label>
+         <input  [formControl]="lastname"matInput placeholder="Last Name">
+       </mat-form-field>
+        <br/>
+     
+     
+        <mat-form-field appearance="outline">
+         <mat-label>Company Name</mat-label>
+         <input  [formControl]="companyname"matInput placeholder="Company Name">
+       </mat-form-field>
+       &nbsp;
+       <mat-form-field appearance="outline">
+         <mat-label>Merchant ID</mat-label>
+         <input required [formControl]="merchantid"matInput placeholder="Merchant ID" (keypress)="preventSpace($event)">
+       </mat-form-field>
+       <br/>
+     
+     
+        <mat-form-field appearance="outline">
+         <mat-label>Phone Number</mat-label>
+         <input  [formControl]="phone"matInput placeholder="Phone Number">
+       </mat-form-field>
+       &nbsp;
+       <mat-form-field appearance="outline">
+         <mat-label>Email</mat-label>
+         <input required [formControl]="email"matInput placeholder="Email">
+       </mat-form-field>
+       <br/>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          
+          <input [formControl]="password" matInput placeholder="Password">
+        </mat-form-field>
+        <br/>
+<!-- In your view, render the image in an Angular component.-->
+<!-- <advanced-image [cldImg]="img"></advanced-image> -->
+Chose Profile Picture<input type="file" name="profile" (change)="handleFileInputChange($event)">
+<img src={{previewSource}} height="300px" width="300px"/>
+       
+      </form>
+     
+      <ng-template pTemplate="footer">
+        <div class="auth-links">
+          <p>
+            Already have an account? 
+            <a href="merchant/login">Sign in here</a>
+          </p>
+        </div>
+        <!-- <div class="info">
+          <p>Have an Account? <span routerLink="/merchant/login">Click here</span></p>
+         </div> -->
+         <button  [disabled]="!email.valid || !password.valid || !firstname.valid || !lastname.valid || !merchantid.valid" (click)="onSubmit()" class="button"mat-flat-button color="primary">Register</button>
+         <div class="alert alert-warning" *ngIf="isSignUpFailed">
+          <!-- Signup failed!<br />{{ errorMessage }} -->
+          {{ errorMessage }}
+        </div>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          {{successMsg}}
+        </div>
+      </ng-template>
+  </p-card>
+
+  <!-- <button (click)="profile()"> Profile </button> -->
+</div>

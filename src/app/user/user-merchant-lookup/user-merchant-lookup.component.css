@@ -1,0 +1,164 @@
+.search-page {
+    padding: 100px 40px 40px;
+    min-height: calc(100vh - 64px);
+    background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+  }
+  
+  .search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Search Header */
+  .search-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .search-header h1 {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  .search-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+  
+  /* Search Box */
+  .search-box {
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  
+  .search-box mat-form-field {
+    width: 100%;
+  }
+  
+  :host ::ng-deep .search-box .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  
+  :host ::ng-deep .search-box .mat-form-field-outline {
+    background: white;
+    border-radius: 12px;
+  }
+  
+  :host ::ng-deep .search-box .mat-form-field-flex {
+    align-items: center;
+    min-height: 60px;
+    padding: 0 16px !important;
+  }
+  
+  .search-box mat-icon {
+    color: #6B46C1;
+    margin-right: 12px;
+  }
+  
+  /* Results Grid */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+  }
+  
+  /* Merchant Card */
+  .merchant-card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+  }
+  
+  .merchant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .merchant-avatar {
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .merchant-avatar mat-icon {
+    color: #6B46C1;
+  }
+  
+  .merchant-details {
+    padding: 16px 0;
+  }
+  
+  .merchant-details p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+    color: #4b5563;
+  }
+  
+  .merchant-details mat-icon {
+    color: #6B46C1;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Loading State */
+  .loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .loading-state p {
+    margin-top: 16px;
+    color: #64748b;
+  }
+  
+  /* No Results State */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .no-results mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+  }
+  
+  .no-results h3 {
+    color: #1e293b;
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+  }
+  
+  .no-results p {
+    color: #64748b;
+    margin: 0;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .search-page {
+      padding: 80px 20px 20px;
+    }
+  
+    .search-header h1 {
+      font-size: 2rem;
+    }
+  
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+  }

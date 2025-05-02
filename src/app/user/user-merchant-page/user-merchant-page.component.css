@@ -1,0 +1,57 @@
+.merchant-page {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading-state,
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
+}
+
+.loading-state p,
+.error-state h3 {
+  margin: 16px 0;
+  color: #666;
+}
+
+.error-state mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #f44336;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 24px;
+}
+
+:host ::ng-deep .p-dataview .p-dataview-content {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+:host ::ng-deep .p-dataview .p-dataview-header {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+:host ::ng-deep .flex {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .flex:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

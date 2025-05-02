@@ -1,0 +1,181 @@
+<!-- <mat-tab-group>
+    <mat-tab label="time"> -->
+        <!-- <div class="calendar-container">
+            <p-calendar [(ngModel)]="selectedDate" (onSelect)="onDateChange($event)" [inline]="true"></p-calendar>
+            
+        </div> -->
+        <p-dropdown [options]="day" [(ngModel)]="selectedDay"></p-dropdown>
+
+        <br>
+        <p-calendar [(ngModel)]="selectedTime" [showTime]="true" hourFormat="12" [timeOnly]="true"
+(click)="selectedTimes"></p-calendar>
+
+<br>
+<button mat-raised-button color="primary" (click)="addAvailability()">Confirm</button>
+
+<br>
+
+<!-- <p-listbox [options]="time"  [style]="{'width':'15rem'}"></p-listbox> -->
+
+
+<!-- <p-megaMenu [model]="items"></p-megaMenu> -->
+
+<!-- <p-listbox [options]="items" [style]="{'width':'300px'}" optionLabel="label">
+    <ng-template let-item pTemplate="item">
+      <div>
+        <strong>{{ item.label }}</strong>
+        <ul>
+          <li *ngFor="let subItem of item.items">
+            {{ subItem.label }}
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+  </p-listbox> -->
+
+        <!-- <div class="center">
+            <p-calendar [(ngModel)]="selectedTime" [showTime]="true" hourFormat="12" [timeOnly]="true"
+                (click)="selectedTimes"></p-calendar>
+
+            <button mat-raised-button color="primary" (click)="addAvalaibility()">Confirm</button>
+            <br>
+        </div> -->
+    <!-- </mat-tab>
+    <mat-tab label="view">
+    </mat-tab>
+</mat-tab-group> -->
+
+
+
+<mat-tab-group>
+  <mat-tab label="Sun"> 
+    
+    <table mat-table [dataSource]="sunday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container  matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Sunday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table>
+  </mat-tab>
+  <mat-tab label="Mon"> 
+    <table mat-table [dataSource]="monday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Monday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table> </mat-tab>
+  <mat-tab label="Tue"> 
+    <table mat-table [dataSource]="tuesday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Tuesday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table> </mat-tab>
+  <mat-tab label="Wed"> 
+    <table mat-table [dataSource]="wednesday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Wednesday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table> </mat-tab>
+  <mat-tab label="Thurs"> 
+    <table mat-table [dataSource]="thursday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Thursday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table> </mat-tab>
+  <mat-tab label="Fri"> 
+    <table mat-table [dataSource]="friday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Friday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table>
+  </mat-tab>
+  <mat-tab label="Sat"> 
+    <table mat-table [dataSource]="saturday" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="time">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element}} </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element">
+
+          <span style="cursor: pointer;" id="clear" class="material-icons" (click)="deleteAvailability(element,'Saturday')">
+            clear
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="tableheaders"></tr>
+      <tr mat-row *matRowDef="let row ; columns: tableheaders;"></tr>
+</table>
+  </mat-tab>
+</mat-tab-group>

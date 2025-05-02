@@ -1,0 +1,88 @@
+<div class="about-us-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Smarter Scheduling for Beauty & Wellness Services</h1>
+        <p class="hero-subtitle">Effortless Appointments. Intelligent Predictions. Happier Clients.</p>
+        <p class="hero-description">
+          Say goodbye to no-shows and scheduling chaos. Our AI-powered platform optimizes appointment scheduling for beauty salons, spas, clinics, and more.
+        </p>
+        <button mat-raised-button color="primary" class="cta-button">
+          Start Free Trial
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </section>
+  
+    <!-- Features Section -->
+    <section class="features-section">
+      <h2>Why Choose Us?</h2>
+      <div class="features-grid">
+        <mat-card *ngFor="let feature of features" class="feature-card">
+          <mat-card-header>
+            <div class="feature-icon">{{feature.icon}}</div>
+          </mat-card-header>
+          <mat-card-content>
+            <h3>{{feature.title}}</h3>
+            <p>{{feature.description}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+  
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+      <h2>How It Works</h2>
+      <div class="steps-container">
+        <div *ngFor="let step of steps" class="step-card">
+          <div class="step-number">{{step.number}}</div>
+          <h3>{{step.title}}</h3>
+          <p>{{step.description}}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <h2>Your Benefits</h2>
+      <div class="benefits-grid">
+        <mat-card *ngFor="let benefit of benefits" class="benefit-card">
+          <mat-card-header>
+            <div class="benefit-icon">{{benefit.icon}}</div>
+          </mat-card-header>
+          <mat-card-content>
+            <h3>{{benefit.title}}</h3>
+            <p>{{benefit.description}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </section>
+  
+    <!-- Testimonial Section -->
+    <section class="mission-section">
+        <div class="mission-card">
+          <h2 class="mission-heading">Our Mission</h2>
+          <p class="mission-text">
+            At NEON, we are redefining the future of appointment management.<br><br>
+            Our mission is to harness the power of AI to eliminate no-shows, optimize bookings, and unlock new growth for businesses everywhere.<br><br>
+            We empower beauty and wellness professionals to do more with less—so they can focus on what matters most: delivering exceptional experiences and thriving in a competitive world.
+          </p>
+        </div>
+      </section>
+  
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <h2>Contact Us</h2>
+      <p>Have questions? We'd love to help!</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <mat-icon>email</mat-icon>
+          <a href="mailto:support@yourstartup.com">support@yourstartup.com</a>
+        </div>
+        <div class="contact-item">
+          <mat-icon>phone</mat-icon>
+          <a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a>
+        </div>
+      </div>
+    </section>
+  </div>

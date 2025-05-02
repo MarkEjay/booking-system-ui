@@ -1,0 +1,37 @@
+<!-- 
+<div class="main" style="height: 100%">
+<div class="card flex justify-content-center">
+  <p-card header="Profile" [style]="{ width: '360px' }">
+      <div>{{fname}} {{lname}}</div>
+      <div>{{email}}</div>
+      <br>
+      <h2 style="cursor: pointer;" routerLink="settings"> <i class="pi pi-user" style="font-size: 1.5rem"></i> Account Settings</h2>
+      <ng-template pTemplate="footer">
+        <h2 style="cursor: pointer;"  (click)="logout()"> <i class="pi pi-sign-out" style="font-size: 1.3rem"></i> Log out</h2>
+     
+      </ng-template>
+  </p-card>
+</div>
+</div> -->
+
+<div class="main">
+  <div class="card flex justify-content-center">
+    <p-card header="Profile" [style]="{ width: '360px' }">
+      <div class="user-info">
+        <div class="name">{{fname}} {{lname}}</div>
+        <div class="email">{{email}}</div>
+      </div>
+      <br>
+      <h2 class="settings-link" routerLink="settings">
+        <i class="pi pi-user"></i>
+        <span>Account Settings</span>
+      </h2>
+      <ng-template pTemplate="footer">
+        <h2 class="logout-button" (click)="logout()">
+          <i class="pi pi-sign-out"></i>
+          <span>Log out</span>
+        </h2>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

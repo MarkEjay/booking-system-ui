@@ -1,0 +1,263 @@
+/* Container Styles */
+:host {
+  display: block;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f6f9fc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PrimeNG Card Overrides */
+:host ::ng-deep .p-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(107, 70, 193, 0.1);
+}
+
+:host ::ng-deep .p-card-header {
+  padding: 24px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2D3748;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+:host ::ng-deep .p-card-content {
+  padding: 24px;
+}
+
+:host ::ng-deep .p-card-footer {
+  padding: 24px;
+  border-top: 1px solid #E2E8F0;
+}
+
+/* Form Styles */
+.example-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Material Form Field Styles */
+:host ::ng-deep .mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #CBD5E0;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color: #6B46C1;
+}
+
+:host ::ng-deep .mat-form-field-label {
+  color: #4A5568;
+}
+
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #6B46C1;
+}
+
+/* Input Styles */
+input.mat-input-element {
+  color: #2D3748;
+}
+
+/* File Input Styles */
+input[type="file"] {
+  margin: 16px 0;
+  padding: 8px;
+  border: 2px dashed #CBD5E0;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #6B46C1;
+}
+
+/* Image Preview */
+img {
+  margin-top: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Button Styles */
+.button {
+  width: 100%;
+  padding: 12px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  background: #6B46C1 !important;
+  color: white !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.button:not([disabled]):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 70, 193, 0.2);
+}
+
+.button[disabled] {
+  background: #CBD5E0 !important;
+  cursor: not-allowed;
+}
+
+/* Alert Styles */
+.alert {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.alert-warning {
+  background: #FFF5F5;
+  color: #C53030;
+  border: 1px solid #FEB2B2;
+}
+
+.alert-success {
+  background: #F0FFF4;
+  color: #2F855A;
+  border: 1px solid #9AE6B4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  :host ::ng-deep .p-card {
+    width: 100% !important;
+  }
+
+  :host ::ng-deep .p-card-header {
+    font-size: 1.5rem;
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Additional Enhancements */
+.mat-form-field-wrapper {
+  margin-bottom: 8px;
+}
+
+/* Info Text Styles */
+.info {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #4A5568;
+}
+
+.info span {
+  color: #6B46C1;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info span:hover {
+  color: #553C9A;
+  text-decoration: underline;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #6B46C1;
+}
+
+.loading mat-spinner {
+  margin-right: 8px;
+}
+
+/* Field Group Spacing */
+.field-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 480px) {
+  .field-group {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+
+
+.auth-links {
+  text-align: center; /* Center the text */
+  margin: 1rem 0; /* Margin above and below the links */
+  padding: 0.5rem; /* Padding around the links */
+}
+
+.auth-links p {
+  color: var(--text-dark); /* Dark text color */
+  font-size: 0.9rem; /* Font size for the text */
+  margin: 0; /* Remove default margin */
+}
+
+.auth-links a {
+  color: var(--primary); /* Primary color for the link */
+  text-decoration: none; /* Remove underline */
+  font-weight: 600; /* Bold text */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.auth-links a:hover {
+  color: var(--primary-dark); /* Darker shade on hover */
+}
+
+/* Button Styling */
+.button {
+  width: 100%; /* Full width for the button */
+  padding: 1rem; /* Padding inside the button */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  font-weight: 600; /* Bold text */
+  text-transform: uppercase; /* Uppercase text */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); /* Gradient background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin-top: 0.5rem; /* Space above the button */
+}
+
+.button:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); /* Change gradient on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.4); /* Shadow on hover */
+}
+
+.button:disabled {
+  background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%); /* Disabled button color */
+  cursor: not-allowed; /* Not allowed cursor */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-links {
+      margin: 0.5rem 0; /* Adjust margin for smaller screens */
+  }
+}
