@@ -10,5 +10,5 @@ export class TermsComponent {
   companyName = 'Neon'; // Update as needed
   jurisdiction = 'Ontario, Canada'; // Update as needed
   location = 'Toronto, Ontario'; // Update as needed
-  supportEmail = 'support@yourcompany.com'; // Update as needed
+  supportEmail = 'markejay.am@gmail.com'; // Update as needed
 }
